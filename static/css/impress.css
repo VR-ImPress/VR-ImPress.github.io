@@ -1,29 +1,29 @@
 /* UI accents from Paper Colour Palettes.pdf (Paul Tol muted plot palette).
    Scene colors are reserved for render/video assets; institution marks retain their brand colors. */
-:root { --primary-color:#332288; --primary-hover:#332288; --text-primary:#242334; --text-secondary:#535465; --text-light:#535465; --background-secondary:#f6f7fb; --gradient-accent:linear-gradient(90deg,#332288,#88ccee); --plot-cyan:#88ccee; --plot-teal:#44aa99; --plot-rose:#cc6677; }
+:root { --primary-color:#72A3FE; --primary-hover:#72A3FE; --text-primary:#242334; --text-secondary:#535465; --text-light:#535465; --background-secondary:#f6f7fb; --gradient-accent:linear-gradient(90deg,#72A3FE,#88ccee); --plot-cyan:#88ccee; --plot-teal:#44aa99; --plot-rose:#cc6677; }
 body { font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text-primary); }
 .site-header { border-bottom:1px solid #e5e3ed; padding:1rem 1.5rem; }
 .site-header nav { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-.wordmark { font-size:1.4rem; font-weight:800; color:#332288; }
+.wordmark { font-size:1.4rem; font-weight:800; color:#72A3FE; }
 .pressure-mark { color:#44aa99; letter-spacing:.1rem; margin-left:.45rem; }
 .nav-links { display:flex; gap:1.6rem; font-size:.95rem; }
 .nav-links a { color:var(--text-secondary); }
-.publication-header { position:relative; overflow:hidden; isolation:isolate; background:#201747; }
+.publication-header { position:relative; overflow:hidden; isolation:isolate; background:#182333; }
 .hero-mosaic { position:absolute; inset:0; z-index:-2; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px; opacity:.52; }
 .hero-mosaic video { width:100%; height:100%; min-height:0; object-fit:cover; }
 .hero-mosaic video:nth-child(2) { object-position:center 30%; }
 .hero-mosaic video:nth-child(3) { object-position:center 80%; }
-.publication-header::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(23,17,49,.85),rgba(23,17,49,.68),rgba(23,17,49,.85)); z-index:-1; }
+.publication-header::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(14,24,40,.85),rgba(14,24,40,.68),rgba(14,24,40,.85)); z-index:-1; }
 .publication-header .hero-body { padding:4.5rem 1.5rem 3rem; }
-.eyebrow { color:#88ccee; font-size:.9rem; font-weight:600; margin-bottom:1.2rem; }
+.eyebrow { color:#72A3FE; font-size:.9rem; font-weight:600; margin-bottom:1.2rem; }
 .publication-title { margin:0 auto!important; max-width:1000px; color:white!important; }
-.project-name { display:block; color:#88ccee; font-size:4.5rem; letter-spacing:-.05em; line-height:1.15; margin-bottom:.75rem; }
+.project-name { display:block; color:#72A3FE; font-size:4.5rem; letter-spacing:-.05em; line-height:1.15; margin-bottom:.75rem; }
 .paper-title { display:block; font-size:2.3rem; line-height:1.3; letter-spacing:-.035em; font-weight:700; }
 .mosaic-note { text-align:center; color:#dce7f5; font-size:.875rem; padding:0 1rem 1.1rem; }
 .author-section { padding:2.3rem 1.5rem 1rem; }
 .publication-authors { font-size:1.08rem; line-height:2.2; margin-bottom:.4rem; }
 .author-block { white-space:nowrap; margin:0 .6rem; }
-.publication-authors a { color:#332288!important; }
+.publication-authors a { color:#72A3FE!important; }
 sup { font-size:.7em; margin-left:.2em; }
 .equal-contribution { font-size:.875rem; color:var(--text-secondary); margin-bottom:1rem; }
 .affiliations { display:flex; flex-wrap:wrap; justify-content:center; gap:.3rem 1.1rem; font-size:.95rem; max-width:900px; margin:auto; }
@@ -35,7 +35,7 @@ sup { font-size:.7em; margin-left:.2em; }
 .berkeley-logo { width:290px; max-width:none; }
 .bosch-logo { width:165px; }
 .publication-links { display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; }
-.publication-links .button[disabled] { background:#f1eff9; color:#332288; opacity:1; border:1px solid #dfdbef!important; box-shadow:none; cursor:default; }
+.publication-links .button[disabled] { background:#edf3ff; color:#72A3FE; opacity:1; border:1px solid #d4e2ff!important; box-shadow:none; cursor:default; }
 .resource-status { font-size:.875rem; font-weight:400; margin-left:.5rem; }
 .section { padding:3.5rem 1.5rem; scroll-margin-top:1rem; }
 .overview-section { padding-top:2rem; padding-bottom:1.5rem; }
@@ -44,16 +44,16 @@ sup { font-size:.7em; margin-left:.2em; }
 .research-figure a { display:block; }
 figcaption { font-size:.95rem; line-height:1.7; color:var(--text-secondary); margin:1.3rem auto 0; max-width:850px; text-align:center; }
 .video-section { padding-top:1rem; }
-.video-placeholder { aspect-ratio:16/9; border:1px solid #cfc8e6; border-radius:16px; background:linear-gradient(135deg,#eeebf7,#eff8fb); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:.5rem; color:#332288; }
+.video-placeholder { aspect-ratio:16/9; border:1px solid #c8d9f7; border-radius:16px; background:linear-gradient(135deg,#edf3ff,#eff8fb); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:.5rem; color:#72A3FE; }
 .play-symbol { display:grid; place-items:center; font-size:2.7rem; width:80px; height:80px; border-radius:50%; background:white; padding-left:.15rem; margin-bottom:.4rem; }
 .video-placeholder h2 { font-size:1.6rem; font-weight:700; }
 .video-placeholder p { color:var(--text-secondary); }
 .abstract-copy { max-width:850px; margin:auto; color:var(--text-secondary); font-size:1.05rem; line-height:1.85; }
 .hero.is-light,.citation-section { background:#f6f7fb; }
 h3 { font-size:1.45rem; font-weight:700; color:var(--text-primary); margin-bottom:.9rem; }
-.research-tabs { display:flex; border-bottom:1px solid #d8d3e8; gap:.4rem; }
+.research-tabs { display:flex; border-bottom:1px solid #d4e2ff; gap:.4rem; }
 .research-tabs button { font:inherit; font-weight:600; flex:1; cursor:pointer; padding:1rem .7rem; color:var(--text-secondary); border:0; border-bottom:3px solid transparent; background:transparent; }
-.research-tabs button[aria-selected=true] { color:#332288; border-color:#332288; background:#f1eff9; }
+.research-tabs button[aria-selected=true] { color:#72A3FE; border-color:#72A3FE; background:#edf3ff; }
 .swipe-hint { color:var(--text-secondary); font-size:.875rem; text-align:center; margin:1rem 0 2rem; }
 .research-panels { touch-action:pan-y pinch-zoom; }
 .research-panel { outline-offset:6px; }
@@ -62,8 +62,8 @@ h3 { font-size:1.45rem; font-weight:700; color:var(--text-primary); margin-botto
 .panel-intro { text-align:center; max-width:780px; margin:0 auto 2rem; font-size:1.05rem; line-height:1.8; color:var(--text-secondary); }
 .task-figure { max-width:820px; margin:3rem auto 0; }
 .retargeting-figure { max-width:780px; margin:auto; }
-.result-summary { margin:2rem auto 0; max-width:780px; padding:1.5rem; border-left:4px solid #332288; background:#f6f7fb; }
-.result-summary strong { color:#332288; font-size:1.8rem; }
+.result-summary { margin:2rem auto 0; max-width:780px; padding:1.5rem; border-left:4px solid #72A3FE; background:#f6f7fb; }
+.result-summary strong { color:#72A3FE; font-size:1.8rem; }
 .result-summary p { margin-top:.5rem; color:var(--text-secondary); }
 .training-flow { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem auto 3rem; }
 .training-flow div { text-align:center; border-top:3px solid #44aa99; background:#f6f7fb; padding:1.5rem .8rem; font-weight:600; }
@@ -71,18 +71,50 @@ h3 { font-size:1.45rem; font-weight:700; color:var(--text-primary); margin-botto
 .policy-results>div { display:grid; grid-template-columns:175px 1fr 65px; gap:1rem; align-items:center; margin:1.3rem 0; }
 .bar-track { background:#f1f0f6; height:32px; border-radius:4px; overflow:hidden; }
 .bar { width:var(--value); height:100%; }
-.bar.baseline { background:#88ccee; }.bar.motion { background:#44aa99; }.bar.ours { background:#332288; }
+.bar.baseline { background:#88ccee; }.bar.motion { background:#44aa99; }.bar.ours { background:#72A3FE; }
 .results-note { color:var(--text-secondary); font-size:.875rem; text-align:center; margin-top:1.5rem; }
 .panel-navigation { display:flex; justify-content:center; align-items:center; gap:1.3rem; margin-top:2.5rem; }
-.panel-navigation button { font:inherit; font-size:.95rem; border:1px solid #d4cde8; background:white; color:#332288; padding:.55rem 1.1rem; border-radius:6px; cursor:pointer; }
+.panel-navigation button { font:inherit; font-size:.95rem; border:1px solid #d4e2ff; background:white; color:#72A3FE; padding:.55rem 1.1rem; border-radius:6px; cursor:pointer; }
 .panel-navigation button:disabled { opacity:.45; cursor:default; }
 #panel-position { font-size:.875rem; color:var(--text-secondary); }
 .footer { padding:2.5rem 1.5rem; background:white; }
 .attribution { font-size:.875rem; margin-top:.9rem; color:var(--text-secondary); }
 .skip-link { position:absolute; left:1rem; top:-100px; padding:.75rem; background:white; z-index:10; }
 .skip-link:focus { top:1rem; }
-button:focus-visible,a:focus-visible,[tabindex]:focus-visible { outline:3px solid #332288; outline-offset:3px; }
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible { outline:3px solid #72A3FE; outline-offset:3px; }
 @media(max-width:768px) { .publication-header .hero-body { padding:3rem 1.25rem 2rem; } .project-name { font-size:3.6rem; } .paper-title { font-size:1.85rem; } .section { padding:2.75rem 1.25rem; } .overview-section { padding-bottom:1rem; } .video-section { padding-top:1rem; } .nav-links { gap:.85rem; font-size:.875rem; } .author-block { margin:0 .4rem; } .institution-logos { gap:.5rem 1rem; } .cmu-logo { width:210px; } .berkeley-logo { width:260px; } .bosch-logo { width:145px; } .institution-logos a { height:72px; } .research-tabs button { font-size:.95rem; padding:.9rem .4rem; } .policy-results>div { grid-template-columns:140px 1fr 55px; gap:.5rem; font-size:.95rem; } }
 @media(max-width:480px) { .publication-links .button { width:auto; font-size:.875rem!important; padding:.65rem .85rem!important; } .paper-title { font-size:1.6rem; } .eyebrow { font-size:.875rem; } .publication-authors { font-size:1rem; } .affiliations { font-size:.875rem; gap:.4rem; } .institution-logos { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; } .institution-logos a { width:100%; } .cmu-logo { width:158px; } .berkeley-logo { width:230px; } .bosch-logo { width:125px; } .video-placeholder h2 { font-size:1.25rem; } .play-symbol { width:48px; height:48px; font-size:1.7rem; } .research-tabs button { font-size:.875rem; } .training-flow { grid-template-columns:1fr; gap:.5rem; } .training-flow div { padding:1rem; } .policy-results>div { grid-template-columns:1fr 60px; } .policy-results span { grid-column:1/-1; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
 @media(max-width:360px) { .site-header { padding:1rem .75rem; } .wordmark { font-size:1.15rem; } .pressure-mark { display:none; } .nav-links { gap:.65rem; } .cmu-logo { width:138px; } }
+
+/* Full-screen title/video hero and optically aligned institution marks. */
+:root { --logo-height:64px; }
+.site-header { height:72px; display:flex; align-items:center; }
+.site-header nav { width:100%; }
+.publication-header { min-height:calc(100svh - 72px); }
+.publication-header .hero-body { display:flex; align-items:center; padding:4rem 2rem; }
+.publication-header .container { width:100%; max-width:1200px!important; }
+.publication-title { max-width:1200px; }
+.project-name { font-size:clamp(5rem,10vw,8.5rem); color:#72A3FE; }
+.paper-title { font-size:clamp(2rem,4vw,3.6rem); line-height:1.2; }
+.hero-mosaic { opacity:.75; }
+.hero,.section { animation:none; }
+/* Blue accents with dark text on light surfaces maintain readable contrast. */
+.publication-authors a { color:#283c5b!important; text-decoration:underline; text-decoration-color:#72A3FE; text-underline-offset:4px; }
+.publication-links .button[disabled],.panel-navigation button,.research-tabs button[aria-selected=true] { color:#283c5b; }
+.research-tabs button[aria-selected=true] { border-color:#72A3FE; }
+.video-placeholder,.result-summary strong { color:#283c5b; }
+.institution-logos { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:2rem; margin:2rem auto; }
+.institution-logos a { position:relative; width:auto; height:var(--logo-height); overflow:hidden; flex:0 0 auto; }
+.institution-logos img { display:block; width:auto; height:var(--logo-height); max-width:none; }
+/* The Berkeley source contains white margins. Crop those margins in layout only. */
+.institution-logos a:has(.berkeley-logo) { width:calc(var(--logo-height) * 5.321905); }
+.institution-logos .berkeley-logo { position:absolute; width:calc(var(--logo-height) * 7.809524); height:calc(var(--logo-height) * 5); max-width:none; left:calc(var(--logo-height) * -1.24381); top:calc(var(--logo-height) * -1.980952); }
+@media(max-width:768px) {
+  :root { --logo-height:48px; }
+  .publication-header .hero-body { padding:3rem 1.25rem; }
+  .project-name { font-size:clamp(4.5rem,14vw,7rem); }
+  .paper-title { font-size:clamp(1.9rem,5.5vw,3rem); }
+  .institution-logos { gap:1.5rem; }
+}
+@media(max-width:480px) { :root { --logo-height:36px; } .institution-logos { gap:1.5rem; } }

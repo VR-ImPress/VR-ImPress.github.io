@@ -33,17 +33,17 @@ Adapted from [Academic Project Page Template](https://github.com/eliahuhorwitz/A
 
 ## Video placeholders and research tabs
 
-- The hero has four muted, looping video elements with still-image posters. Add local `src` paths to `.hero-mosaic video` in `index.html` and remove the coming-soon label when ready. Playback respects reduced-motion settings and pauses in background tabs.
+- The hero has four muted, looping video elements with still-image posters. Add local `src` paths to `.hero-mosaic video` in `index.html` when ready. Playback respects reduced-motion settings and pauses in background tabs.
 - Replace `.video-placeholder` (between the teaser and abstract) with the project video player and captions.
 - The three research tabs support clicks, Left/Right/Home/End keys, Previous/Next buttons, and horizontal swipes. Interaction code is in `static/js/impress.js`.
-- The first three authors have equal-contribution markers. Affiliations 1 and 4 share the CMU logo.
+- The first three authors have equal-contribution markers. All CMU authors share affiliation 1; Bosch is affiliation 4.
 
 ## Palette and logo sources
 
-Page accents and the policy chart use the supplied *Paper Colour Palettes.pdf*: indigo `#332288`, cyan `#88CCEE`, teal `#44AA99`, and rose `#CC6677`. Existing research figures and official institution logo colors are preserved.
+The main accent is `#72A3FE` from the supplied *Paper Colour Palettes.pdf*, with cyan `#88CCEE`, teal `#44AA99`, and rose `#CC6677` as secondary colors. Existing research figures and official institution logo colors are preserved.
 
 Logos are stored locally from official sources:
-- CMU: https://brand.cmu.edu/resources/downloads
+- CMU: user-supplied square university logo (`cmu-square.png`).
 - Illinois: https://cdn.brand.illinois.edu/logos/block-i.svg
 - Berkeley: https://brand.berkeley.edu/visual-identity/logos/
 - Bosch: the header SVG at https://www.bosch.com/
