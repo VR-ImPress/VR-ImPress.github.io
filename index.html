@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ImPress: Imitation Learning from VR Human Demonstrations via Contact Pressure-Guided Retargeting</title>
   <meta name="description" content="ImPress learns dexterous robot manipulation from VR human demonstrations through contact pressure-guided retargeting and policy learning.">
-  <meta name="theme-color" content="#176b71">
+  <meta name="theme-color" content="#332288">
   <link rel="canonical" href="https://vr-impress.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ImPress: Imitation Learning from VR Human Demonstrations via Contact Pressure-Guided Retargeting">
@@ -18,39 +18,72 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <link rel="stylesheet" href="static/css/impress.css">
+  <script defer src="static/js/impress.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
   <nav class="container is-max-desktop" aria-label="Main navigation">
     <a class="wordmark" href="#">ImPress<span class="pressure-mark" aria-hidden="true">•••</span></a>
-    <div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a></div>
+    <div class="nav-links"><a href="#overview">Overview</a><a href="#research">Research</a><a href="#citation">Resources</a></div>
   </nav>
 </header>
 <main id="main-content">
 <section class="hero publication-header">
+  <div class="hero-mosaic" aria-hidden="true">
+    <!-- TODO: Add src to these muted, looping videos when demo clips are ready. Posters are temporary stills. -->
+    <video muted loop playsinline preload="none" poster="static/images/example-tasks.png" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="static/images/retargeting.png" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="static/images/retargeting.png" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="static/images/example-tasks.png" tabindex="-1"></video>
+  </div>
   <div class="hero-body"><div class="container is-max-desktop has-text-centered">
     <p class="eyebrow">VR demonstrations · Contact pressure · Robot learning</p>
     <h1 class="title publication-title"><span class="project-name">ImPress</span><span class="paper-title">Imitation Learning from VR Human Demonstrations via Contact Pressure-Guided Retargeting</span></h1>
-    <!-- TODO: Replace with the confirmed author list and affiliations. -->
-    <p class="publication-authors">Authors and affiliations coming soon</p>
+  </div></div>
+  <p class="mosaic-note">Demonstration &amp; retargeting video mosaic · Coming soon</p>
+</section>
+<section class="author-section" aria-label="Authors and affiliations"><div class="container is-max-desktop has-text-centered">
+  <div class="publication-authors">
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Yuemin_Mao1">Yuemin Mao</a><sup>1,*</sup></span>
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Richard_Xu3">Richard Xu</a><sup>2,*</sup></span>
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Uksang_Yoo1">Uksang Yoo</a><sup>3,*</sup></span>
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Romina_Mir1">Romina Mir</a><sup>4</sup></span>
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Kalie_Ching1">Kalie Ching</a><sup>4</sup></span>
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Jonathan_Francis1">Jonathan Francis</a><sup>5</sup></span>
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Jeffrey_Ichnowski1">Jeffrey Ichnowski</a><sup>4</sup></span>
+  </div>
+  <p class="equal-contribution">* Equal contribution</p>
+  <div class="affiliations">
+    <span><sup>1</sup> CMU</span><span><sup>2</sup> University of Illinois at Urbana-Champaign</span>
+    <span><sup>3</sup> University of California, Berkeley</span><span><sup>4</sup> Carnegie Mellon University</span><span><sup>5</sup> Bosch</span>
+  </div>
+  <div class="institution-logos" aria-label="Affiliated institutions">
+    <a href="https://www.cmu.edu/" aria-label="Carnegie Mellon University, affiliations 1 and 4"><img class="cmu-logo" src="static/images/logos/cmu.jpg" alt="Carnegie Mellon University"></a>
+    <a href="https://illinois.edu/" aria-label="University of Illinois at Urbana-Champaign"><img class="illinois-logo" src="static/images/logos/illinois.svg" alt="Illinois"></a>
+    <a href="https://www.berkeley.edu/" aria-label="University of California, Berkeley"><img class="berkeley-logo" src="static/images/logos/berkeley.png" alt="UC Berkeley"></a>
+    <a href="https://www.bosch.com/" aria-label="Bosch"><img class="bosch-logo" src="static/images/logos/bosch.svg" alt="Bosch"></a>
+  </div>
     <div class="publication-links" aria-label="Research resources">
       <!-- TODO: Replace each disabled button with a link when the resource is released. -->
       <button class="button is-rounded" disabled>Paper <span class="resource-status">Coming soon</span></button>
       <button class="button is-rounded" disabled>Code <span class="resource-status">Coming soon</span></button>
       <button class="button is-rounded" disabled>Dataset <span class="resource-status">Coming soon</span></button>
     </div>
-    <p class="hero-summary">Learning how to make contact.<br>From human hands in VR to dexterous robot manipulation.</p>
-  </div></div>
+  </div>
 </section>
 <section class="section overview-section" id="overview" aria-label="ImPress overview">
   <div class="container is-max-desktop">
     <figure class="research-figure">
       <a href="static/images/overview.png" aria-label="View the full-resolution ImPress overview"><img src="static/images/overview.png" alt="ImPress pipeline: human demonstrations in virtual reality, pressure-guided robot retargeting, and contact-guided policy learning across tasks and robot embodiments." fetchpriority="high"></a>
-      <figcaption><strong>Contact pressure connects demonstration, retargeting, and learning.</strong> ImPress records where humans load objects, uses these regions to guide robot contact, and learns policies from successful retargeted executions.</figcaption>
     </figure>
-    <div class="stats" aria-label="Dataset and evaluation scope">
-      <div><strong>7,100</strong><span>VR demonstrations</span></div><div><strong>71</strong><span>Contact-rich tasks</span></div><div><strong>3</strong><span>Robot end effectors evaluated</span></div>
+  </div>
+</section>
+<section class="section video-section" aria-label="Project video">
+  <div class="container is-max-desktop">
+    <!-- TODO: Replace this placeholder with the project video, controls, and caption track. -->
+    <div class="video-placeholder" role="img" aria-label="Project video placeholder, coming soon">
+      <span class="play-symbol" aria-hidden="true">▷</span><h2>ImPress in action</h2><p>Project video coming soon</p>
     </div>
   </div>
 </section>
@@ -58,27 +91,41 @@
   <h2 class="title is-3 has-text-centered">Abstract</h2>
   <div class="content abstract-copy"><p>Dexterous manipulation depends on how the hand interacts with an object and how the object interacts with its surroundings. Contact pressure provides a representation of these interactions and can guide their transfer from humans to robots. We present ImPress, a framework built around contact pressure for learning dexterous robot manipulation from immersive virtual reality (VR) human demonstrations. First, the ImPress demonstration collection pipeline lets operators demonstrate manipulation tasks directly inside a physics simulator, recording dense contact pressure fields without instrumenting the hands or objects. The resulting ImPress dataset contains 7,100 demonstrations of 71 contact-rich manipulation tasks. Each demonstration records hand-object and, where present, object-object contact pressure, and can be replayed directly in simulation. Second, the ImPress retargeting pipeline uses the recorded pressure to guide where each robot makes contact during model predictive path integral (MPPI) control, without requiring correspondence between human and robot hand parts. Across eight tasks and three robot end effectors, it achieves a success rate of 72.4% compared with 32.0% for the strongest baseline and leads on every task-embodiment pair. Third, the ImPress policy learning pipeline trains diffusion policies on the retargeted trajectories and fine-tunes them with reinforcement learning, using a reward that preserves the robot&#x27;s contacts from its own successful executions. On test object initial states, contact-guided reinforcement learning improves average success from 32.9% with behavior cloning to 55.7%, versus 52.1% for motion-guided RL, with higher average success on all tasks.</p></div>
 </div></section>
-<section class="section" id="method"><div class="container is-max-desktop">
-  <h2 class="title is-3 has-text-centered">From demonstration to policy</h2>
-  <div class="columns method-columns">
-    <article class="column"><h3>Demonstrate in VR</h3><p>Operators manipulate objects inside a physics simulator. The system records hand and object motion alongside dense hand-object and object-object contact pressure, without instrumenting hands or objects.</p></article>
-    <article class="column"><h3>Retarget through contact</h3><p>Pressure guides grasp initialization and contact adjustments during model predictive path integral (MPPI) control, without requiring correspondence between human and robot hand parts.</p></article>
-    <article class="column"><h3>Learn and refine</h3><p>Diffusion policies learn from successful retargeted trajectories. Reinforcement learning then refines them with a reward that preserves contacts from the robot’s own successful executions.</p></article>
+<section class="section research-section" id="research"><div class="container is-max-desktop">
+  <h2 class="title is-3 has-text-centered">Explore ImPress</h2>
+  <div class="research-tabs" role="tablist" aria-label="ImPress research areas">
+    <button type="button" role="tab" id="tab-dataset" aria-controls="panel-dataset" aria-selected="true">Dataset / demo collection</button>
+    <button type="button" role="tab" id="tab-retargeting" aria-controls="panel-retargeting" aria-selected="false" tabindex="-1">Retargeting</button>
+    <button type="button" role="tab" id="tab-policy" aria-controls="panel-policy" aria-selected="false" tabindex="-1">Policy training</button>
   </div>
-  <figure class="research-figure"><a href="static/images/data-collection.png" aria-label="View the full-resolution VR collection setup"><img src="static/images/data-collection.png" alt="VR collection setup showing headset hand tracking, the first-person simulation view, physically simulated hand contact, and recorded contact patches." loading="lazy"></a><figcaption><strong>Demonstrations with contact built in.</strong> A tracked target hand drives a physically simulated hand; further finger closure against an object becomes grip force. Contact pressure and motion are recorded at each simulation step.</figcaption></figure>
-</div></section>
-<section class="section dataset-section" id="dataset"><div class="container is-max-desktop">
-  <h2 class="title is-3 has-text-centered">A dataset of contact-rich interactions</h2>
-  <p class="section-intro">7,100 demonstrations across 71 manipulation tasks, with contact pressure and motion that can be replayed directly in simulation.</p>
-  <figure class="research-figure task-figure"><a href="static/images/example-tasks.png" aria-label="View full-resolution task examples"><img src="static/images/example-tasks.png" alt="Examples of contact-rich manipulation tasks recorded in the ImPress VR dataset." loading="lazy"></a><figcaption>Examples of recorded manipulation tasks. Dataset download details will be added with the release.</figcaption></figure>
-</div></section>
-<section class="section" id="results"><div class="container is-max-desktop">
-  <h2 class="title is-3 has-text-centered">Results at a glance</h2>
-  <p class="section-intro">Results reported in the current manuscript.</p>
-  <div class="columns result-columns">
-    <article class="column"><h3>Pressure-guided retargeting</h3><p class="result-number">72.4<span>% success</span></p><p>Compared with 32.0% for the strongest baseline, across eight tasks and three robot end effectors.</p></article>
-    <article class="column"><h3>Contact-guided policy refinement</h3><p class="result-number">55.7<span>% success</span></p><p>On test object initial states, compared with 32.9% for behavior cloning and 52.1% for motion-guided reinforcement learning.</p></article>
+  <p class="swipe-hint">Swipe left or right to explore</p>
+  <div class="research-panels">
+    <article class="research-panel" id="panel-dataset" role="tabpanel" aria-labelledby="tab-dataset" tabindex="0">
+      <h3>Collecting contact-rich demonstrations in VR</h3>
+      <p class="panel-intro">7,100 demonstrations across 71 manipulation tasks, with contact pressure and motion that can be replayed directly in simulation.</p>
+      <figure class="research-figure"><a href="static/images/data-collection.png" aria-label="View full-resolution collection setup"><img src="static/images/data-collection.png" alt="VR collection setup: headset tracking, simulated hands, physical interaction, and recorded contact pressure." loading="lazy" draggable="false"></a><figcaption>A tracked target hand drives a physically simulated hand. Contact pressure and motion are recorded at each simulation step.</figcaption></figure>
+      <figure class="research-figure task-figure"><a href="static/images/example-tasks.png" aria-label="View full-resolution task examples"><img src="static/images/example-tasks.png" alt="Contact-rich manipulation tasks from the ImPress dataset." loading="lazy" draggable="false"></a><figcaption>Examples of recorded manipulation tasks. Dataset download details are coming soon.</figcaption></figure>
+    </article>
+    <article class="research-panel" id="panel-retargeting" role="tabpanel" aria-labelledby="tab-retargeting" tabindex="0" hidden>
+      <h3>Contact pressure-guided retargeting</h3>
+      <p class="panel-intro">Transfer demonstrations across robot embodiments using object-centric contact pressure and demonstrated object motion.</p>
+      <figure class="research-figure retargeting-figure"><a href="static/images/retargeting.png" aria-label="View full-resolution retargeting examples"><img src="static/images/retargeting.png" alt="Human demonstration and Robotiq, Allegro, and Sharpa executions of grasping, reorienting, aligning, and inserting an object." loading="lazy" draggable="false"></a></figure>
+      <div class="result-summary"><strong>72.4% success</strong><p>Compared with 32.0% for the strongest baseline, across eight tasks and three robot end effectors. Results from the current manuscript.</p></div>
+    </article>
+    <article class="research-panel" id="panel-policy" role="tabpanel" aria-labelledby="tab-policy" tabindex="0" hidden>
+      <h3>Policy training with contact-guided refinement</h3>
+      <p class="panel-intro">Train diffusion policies on successful retargeted trajectories, then fine-tune with reinforcement learning using contacts from the robot’s own successful executions.</p>
+      <div class="training-flow" aria-label="Policy training stages"><div>Retargeted trajectories</div><div>Diffusion policy</div><div>Contact-guided RL</div></div>
+      <div class="policy-results" aria-label="Success on test object initial states">
+        <div><span>Behavior cloning</span><div class="bar-track"><div class="bar baseline" style="--value:32.9%"></div></div><strong>32.9%</strong></div>
+        <div><span>Motion-guided RL</span><div class="bar-track"><div class="bar motion" style="--value:52.1%"></div></div><strong>52.1%</strong></div>
+        <div><span>Contact-guided RL</span><div class="bar-track"><div class="bar ours" style="--value:55.7%"></div></div><strong>55.7%</strong></div>
+      </div>
+      <p class="results-note">Success on test object initial states, as reported in the current manuscript. Bars use a 0–100% scale.</p>
+    </article>
   </div>
+  <div class="panel-navigation"><button type="button" id="previous-panel" disabled>Previous</button><span id="panel-position" aria-live="polite">1 / 3</span><button type="button" id="next-panel">Next</button></div>
+  <noscript><p>Enable JavaScript to switch between the research tabs.</p></noscript>
 </div></section>
 <section class="section citation-section" id="citation"><div class="container is-max-desktop has-text-centered">
   <h2 class="title is-3">Citation &amp; resources</h2>
