@@ -91,7 +91,7 @@ button:focus-visible,a:focus-visible,[tabindex]:focus-visible { outline:3px soli
 :root { --logo-height:64px; }
 .site-header { height:72px; display:flex; align-items:center; }
 .site-header nav { width:100%; }
-.publication-header { min-height:calc(100svh - 72px); }
+.publication-header { min-height:100svh; }
 .publication-header .hero-body { display:flex; align-items:center; padding:4rem 2rem; }
 .publication-header .container { width:100%; max-width:1200px!important; }
 .publication-title { max-width:1200px; }
@@ -118,3 +118,13 @@ button:focus-visible,a:focus-visible,[tabindex]:focus-visible { outline:3px soli
   .institution-logos { gap:1.5rem; }
 }
 @media(max-width:480px) { :root { --logo-height:36px; } .institution-logos { gap:1.5rem; } }
+
+/* Navigation and resource controls overlay the opening video mosaic. */
+.site-header { position:absolute; inset:0 0 auto; z-index:5; background:transparent; border:0; }
+.site-header .wordmark,.site-header .pressure-mark,.site-header .nav-links a { color:#fff; }
+.site-header a:focus-visible { outline-color:#fff; }
+.publication-header .hero-body { padding-top:calc(72px + 3rem); padding-bottom:3rem; }
+.publication-header .publication-links { margin-top:2rem; }
+.publication-header .publication-links .button[disabled] { color:#fff; background:rgba(14,24,40,.5); border:1px solid rgba(255,255,255,.7)!important; backdrop-filter:blur(8px); }
+.footer .attribution { margin-top:0; }
+@media(max-width:480px) { .publication-header .hero-body { padding-top:calc(72px + 1.5rem); padding-bottom:1.5rem; } .publication-header .publication-links { margin-top:1.5rem; } }
