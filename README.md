@@ -35,7 +35,7 @@ Adapted from [Academic Project Page Template](https://github.com/eliahuhorwitz/A
 
 - The hero has four muted, looping video elements with still-image posters. Add local `src` paths to `.hero-mosaic video` in `index.html` when ready. Playback respects reduced-motion settings and pauses in background tabs.
 - Replace `.video-placeholder` (between the teaser and abstract) with the project video player and captions.
-- The three research tabs support clicks, Left/Right/Home/End keys, Previous/Next buttons, and horizontal swipes. Interaction code is in `static/js/impress.js`.
+- The three research panels support clickable edge previews, process tabs, pagination dots, Left/Right/Home/End keys, and horizontal swipes. Retargeting is shown initially; previews wrap between all three panels. Interaction code is in `static/js/impress.js`.
 - The first three authors have equal-contribution markers. All CMU authors share affiliation 1; Bosch is affiliation 4.
 
 ## Palette and logo sources
