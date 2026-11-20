@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="snap-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImPress: Imitation Learning from VR Human Demonstrations via Contact Pressure-Guided Retargeting</title>
+  <meta name="description" content="ImPress learns dexterous robot manipulation from VR human demonstrations through contact pressure-guided retargeting and policy learning.">
+  <meta name="theme-color" content="#72A3FE">
+  <link rel="canonical" href="https://vr-impress.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ImPress: Imitation Learning from VR Human Demonstrations via Contact Pressure-Guided Retargeting">
+  <meta property="og:description" content="From human demonstrations to robot manipulation, guided by contact pressure.">
+  <meta property="og:url" content="https://vr-impress.github.io/">
+  <meta property="og:image" content="https://vr-impress.github.io/static/images/overview.png">
+  <meta property="og:image:alt" content="ImPress demonstration collection, retargeting, and policy learning pipeline">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/impress.css">
+  <link rel="stylesheet" href="static/css/research-vertical.css">
+  <script defer src="static/js/impress.js"></script>
+  <script defer src="static/js/research-vertical.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <nav class="container is-max-desktop" aria-label="Main navigation">
+    <a class="wordmark" href="#">ImPress<span class="pressure-mark" aria-hidden="true">•••</span></a>
+    <div class="nav-links"><a href="#overview">Overview</a><a href="#research">Research</a><a href="#citation">Resources</a></div>
+  </nav>
+</header>
+<main id="main-content">
+<div class="snap-region">
+<section class="hero publication-header">
+  <div class="hero-mosaic" aria-hidden="true">
+    <!-- TODO: Add src to these muted, looping videos when demo clips are ready. Posters are temporary stills. -->
+    <video muted loop playsinline preload="none" poster="static/images/example-tasks.png" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="static/images/retargeting.png" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="static/images/retargeting.png" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="static/images/example-tasks.png" tabindex="-1"></video>
+  </div>
+  <div class="hero-body"><div class="container is-max-desktop has-text-centered">
+    <h1 class="title publication-title"><span class="project-name">ImPress</span><span class="paper-title">Imitation Learning from VR Human Demonstrations via Contact Pressure-Guided Retargeting</span></h1>
+    <div class="publication-links" aria-label="Research resources">
+      <!-- TODO: Replace each disabled button with a link when the resource is released. -->
+      <button class="button is-rounded" disabled>Paper <span class="resource-status">Coming soon</span></button>
+      <button class="button is-rounded" disabled>Code <span class="resource-status">Coming soon</span></button>
+      <button class="button is-rounded" disabled>Dataset <span class="resource-status">Coming soon</span></button>
+    </div>
+  </div></div>
+</section>
+<section class="author-section" aria-label="Authors and affiliations"><div class="container is-max-desktop has-text-centered">
+  <div class="publication-authors">
+    <span class="author-block"><a href="https://yueminm.github.io">Yuemin Mao</a><sup>1,*</sup></span>
+    <span class="author-block"><a href="https://scholar.google.com/citations?hl=en&amp;user=vQqJhgEAAAAJ">Richard Xu</a><sup>2,*</sup></span>
+    <span class="author-block"><a href="https://uksangyoo.github.io">Uksang Yoo</a><sup>3,*</sup></span>
+    <span class="author-block"><a href="https://openreview.net/profile?id=~Romina_Mir1">Romina Mir</a><sup>1</sup></span>
+    <span class="author-block"><a href="https://kalieching.github.io">Kalie Ching</a><sup>1</sup></span>
+    <span class="author-block"><a href="https://jonfranc.com">Jonathan Francis</a><sup>4</sup></span>
+    <span class="author-block"><a href="https://ichnow.ski">Jeffrey Ichnowski</a><sup>1</sup></span>
+  </div>
+  <p class="equal-contribution">* Equal contribution</p>
+  <div class="affiliations">
+    <span><sup>1</sup> Carnegie Mellon University</span><span><sup>2</sup> University of Illinois at Urbana-Champaign</span>
+    <span><sup>3</sup> University of California, Berkeley</span><span><sup>4</sup> Bosch</span>
+  </div>
+  <div class="institution-logos" aria-label="Affiliated institutions">
+    <a href="https://www.cmu.edu/" aria-label="Carnegie Mellon University"><img class="cmu-logo" src="static/images/logos/cmu-square.png" alt="Carnegie Mellon University"></a>
+    <a href="https://illinois.edu/" aria-label="University of Illinois at Urbana-Champaign"><img class="illinois-logo" src="static/images/logos/illinois.svg" alt="Illinois"></a>
+    <a href="https://www.berkeley.edu/" aria-label="University of California, Berkeley"><img class="berkeley-logo" src="static/images/logos/berkeley.png" alt="UC Berkeley"></a>
+    <a href="https://www.bosch.com/" aria-label="Bosch"><img class="bosch-logo" src="static/images/logos/bosch.svg" alt="Bosch"></a>
+  </div>
+
+  </div>
+</section>
+<section class="section overview-section" id="overview" aria-label="ImPress overview">
+  <div class="container is-max-desktop">
+    <figure class="research-figure">
+      <a href="static/images/overview.png" aria-label="View the full-resolution ImPress overview"><img src="static/images/overview.png" alt="ImPress pipeline: human demonstrations in virtual reality, pressure-guided robot retargeting, and contact-guided policy learning across tasks and robot embodiments." fetchpriority="high"></a>
+    </figure>
+  </div>
+</section>
+<section class="section video-section" aria-label="Project video">
+  <div class="container is-max-desktop">
+    <!-- TODO: Replace this placeholder with the project video, controls, and caption track. -->
+    <div class="video-placeholder" role="img" aria-label="Project video placeholder, coming soon">
+      <span class="play-symbol" aria-hidden="true">▷</span><h2>ImPress in action</h2><p>Project video coming soon</p>
+    </div>
+  </div>
+</section>
+<section class="section hero is-light" id="abstract"><div class="container is-max-desktop">
+  <details class="abstract-toggle">
+  <summary><h2 class="title is-3">Abstract</h2></summary>
+  <div class="content abstract-copy"><p>Dexterous manipulation depends on how the hand interacts with an object and how the object interacts with its surroundings. Contact pressure provides a representation of these interactions and can guide their transfer from humans to robots. We present ImPress, a framework built around contact pressure for learning dexterous robot manipulation from immersive virtual reality (VR) human demonstrations. First, the ImPress demonstration collection pipeline lets operators demonstrate manipulation tasks directly inside a physics simulator, recording dense contact pressure fields without instrumenting the hands or objects. The resulting ImPress dataset contains 7,100 demonstrations of 71 contact-rich manipulation tasks. Each demonstration records hand-object and, where present, object-object contact pressure, and can be replayed directly in simulation. Second, the ImPress retargeting pipeline uses the recorded pressure to guide where each robot makes contact during model predictive path integral (MPPI) control, without requiring correspondence between human and robot hand parts. Across eight tasks and three robot end effectors, it achieves a success rate of 72.4% compared with 32.0% for the strongest baseline and leads on every task-embodiment pair. Third, the ImPress policy learning pipeline trains diffusion policies on the retargeted trajectories and fine-tunes them with reinforcement learning, using a reward that preserves the robot&#x27;s contacts from its own successful executions. On test object initial states, contact-guided reinforcement learning improves average success from 32.9% with behavior cloning to 55.7%, versus 52.1% for motion-guided RL, with higher average success on all tasks.</p></div>
+  </details>
+</div></section>
+</div>
+<section class="research-v" id="research" aria-label="ImPress research pipeline">
+  <div class="v-bar" style="--i:0"><button type="button" aria-controls="stage-1"><span class="stage-number" aria-hidden="true">01</span><span class="v-bar-title">Dataset / demo collection</span></button><span class="v-bar-progress" aria-hidden="true"></span></div>
+  <div class="v-body" id="stage-1" style="--i:0">
+    <h2 class="v-heading"><span class="stage-number" aria-hidden="true">01</span>Dataset / demo collection</h2>
+    <div class="v-cards">
+          <figure class="research-card">
+            <h3>VR demonstration collection</h3>
+            <a href="static/images/data-collection.png"><img src="static/images/data-collection.png" width="1800" height="374" alt="VR collection setup and tracked hands driving simulated physical interaction."></a>
+            <figcaption>Record contact pressure and motion at each simulation step.</figcaption>
+          </figure>
+          <figure class="research-card">
+            <h3>Dataset composition</h3>
+            <a href="static/images/dataset-composition.png"><img src="static/images/dataset-composition.png" width="1412" height="1500" alt="Dataset breakdown by task category, duration, objects, and contact type."></a>
+            <figcaption>7,100 demonstrations across 71 contact-rich tasks.</figcaption>
+          </figure>
+          <figure class="research-card">
+            <h3>Task examples</h3>
+            <a href="static/images/example-tasks.png"><img src="static/images/example-tasks.png" width="1800" height="1198" alt="Examples of contact-rich manipulation tasks in the ImPress dataset."></a>
+          </figure>
+    </div>
+    <span class="v-end" aria-hidden="true"></span>
+  </div>
+  <div class="v-bar" style="--i:1"><button type="button" aria-controls="stage-2"><span class="stage-number" aria-hidden="true">02</span><span class="v-bar-title">Retargeting</span></button><span class="v-bar-progress" aria-hidden="true"></span></div>
+  <div class="v-body" id="stage-2" style="--i:1">
+    <h2 class="v-heading"><span class="stage-number" aria-hidden="true">02</span>Retargeting</h2>
+    <div class="v-cards">
+          <figure class="research-card">
+            <h3>From human to robot</h3>
+            <a href="static/images/retargeting.png"><img src="static/images/retargeting.png" width="2000" height="1988" alt="Human, Robotiq, Allegro, and Sharpa executions of grasping, reorienting, aligning, and inserting an object."></a>
+            <figcaption>Transfer demonstrations using contact pressure and object motion.</figcaption>
+          </figure>
+          <figure class="research-card">
+            <h3>Evaluation tasks</h3>
+            <a href="static/images/retargeting-tasks.png"><img src="static/images/retargeting-tasks.png" width="1500" height="331" alt="Representative tasks used to evaluate retargeting."></a>
+          </figure>
+          <article class="research-card">
+            <h3>Retargeting success</h3>
+            <div class="retargeting-result"><strong>72.4%</strong><p>Compared with 32.0% for the strongest baseline across eight tasks and three robot end effectors.</p></div>
+          </article>
+    </div>
+    <span class="v-end" aria-hidden="true"></span>
+  </div>
+  <div class="v-bar" style="--i:2"><button type="button" aria-controls="stage-3"><span class="stage-number" aria-hidden="true">03</span><span class="v-bar-title">Policy training</span></button><span class="v-bar-progress" aria-hidden="true"></span></div>
+  <div class="v-body" id="stage-3" style="--i:2">
+    <h2 class="v-heading"><span class="stage-number" aria-hidden="true">03</span>Policy training</h2>
+    <div class="v-cards">
+          <article class="research-card">
+            <h3>Training pipeline</h3>
+            <ol class="training-flow" aria-label="Policy training stages"><li>Retargeted trajectories</li><li>Diffusion policy</li><li>Contact-guided RL</li></ol>
+            <p>Fine-tune diffusion policies using contacts from successful robot executions.</p>
+          </article>
+          <article class="research-card">
+            <h3>Policy success rates</h3>
+            <div class="policy-results" aria-label="Success on test object initial states">
+              <div><span>Behavior cloning</span><div class="bar-track"><div class="bar baseline" style="--value:32.9%"></div></div><strong>32.9%</strong></div>
+              <div><span>Motion-guided RL</span><div class="bar-track"><div class="bar motion" style="--value:52.1%"></div></div><strong>52.1%</strong></div>
+              <div><span>Contact-guided RL</span><div class="bar-track"><div class="bar ours" style="--value:55.7%"></div></div><strong>55.7%</strong></div>
+            </div>
+            <p class="results-note">Success on test object initial states, as reported in the current manuscript. Bars use a 0–100% scale.</p>
+          </article>
+    </div>
+    <span class="v-end" aria-hidden="true"></span>
+  </div>
+</section>
+<section class="section citation-section" id="citation"><div class="container is-max-desktop has-text-centered">
+  <h2 class="title is-3">Citation &amp; resources</h2>
+  <!-- TODO: Add the official BibTeX entry and paper, code, data, and video links on release. -->
+  <p>The paper, code, dataset, and citation details are coming soon.</p>
+</div></section>
+</main>
+<footer class="footer"><div class="container is-max-desktop has-text-centered"><p class="attribution">Website adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a> and <a href="https://nerfies.github.io/">Nerfies</a>.<br>Template adaptation licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Research content and figures belong to their respective authors.</p></div></footer>
+</body>
+</html>

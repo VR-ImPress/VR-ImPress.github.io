@@ -1,0 +1,66 @@
+/* Prototype B: research stages laid out vertically, scrolled natively.
+
+   Scrolling is entirely the browser's. Stage boundaries come from CSS scroll snapping:
+   - each stage body snaps at its start and (via .v-end) at its end, both with scroll-snap-stop:always,
+     so one gesture cannot skip past either point. A flick from mid-stage stops at that stage's end;
+     any scroll from a stage's end lands on the next stage's start.
+   - stage bodies taller than the screen are "oversized" snap areas, so you scroll freely inside them.
+   - everything above the research section is one oversized snap area (.snap-region), so the rest
+     of the page scrolls freely too; the footer snaps to the page bottom.
+
+   Stage titles are sticky bars that are siblings in one container, so they stay on screen for the
+   whole section: earlier and current titles stack at the top, later titles stack at the bottom. */
+
+html.snap-page { scroll-snap-type:y mandatory; }
+.snap-region { scroll-snap-align:start; }
+.snap-page .footer { scroll-snap-align:end; }
+
+.research-v { --hs:52px; --n:3; --gutter:max(1.5rem,calc((100vw - 1200px) / 2)); --pad:calc(var(--gutter) + 1.5rem); position:relative; background:white; border-top:1px solid #dfe3ea; }
+
+/* Sticky title bars. Bar i sits in slot i from the top once reached, and in slot (n-1-i) from the
+   bottom before that. Bars have a fixed height so the stacking offsets stay exact. */
+.v-bar { position:sticky; z-index:2; top:calc(var(--i) * var(--hs)); bottom:calc((var(--n) - 1 - var(--i)) * var(--hs)); height:var(--hs); background:rgba(255,255,255,.96); backdrop-filter:blur(8px); border-bottom:1px solid #dfe3ea; }
+.v-bar button { display:flex; align-items:center; gap:1.25rem; width:100%; height:100%; padding:0 var(--pad); border:0; background:none; font:inherit; text-align:left; cursor:pointer; }
+.v-bar .stage-number { font-size:1rem; font-weight:700; color:#6b7280; min-width:2.6ch; transition:color .3s,opacity .3s; }
+.v-bar-title { font-size:1.05rem; font-weight:600; color:var(--text-secondary); transition:color .3s,opacity .3s; }
+.v-bar button:hover .stage-number,.v-bar button:hover .v-bar-title { color:#447ddf; }
+.v-bar.is-active .stage-number { color:#447ddf; }
+.v-bar.is-active .v-bar-title { color:var(--text-primary); }
+/* While the stage's large heading is on screen, its bar shows no label (avoids a duplicate title). */
+.v-bar.is-active.heading-visible .stage-number,.v-bar.is-active.heading-visible .v-bar-title { opacity:0; }
+.v-bar-progress { position:absolute; left:0; right:0; bottom:-1px; height:2px; background:#72A3FE; transform-origin:left; transform:scaleX(var(--p,0)); opacity:0; transition:opacity .3s; }
+.v-bar.is-active .v-bar-progress { opacity:1; }
+
+/* Stage bodies and their snap points. */
+.v-body { padding:clamp(1.5rem,4vh,2.5rem) var(--pad) 0; scroll-snap-align:start; scroll-snap-stop:always; scroll-margin-top:calc((var(--i) + 1) * var(--hs)); }
+.v-end { display:block; height:0; scroll-snap-align:end; scroll-snap-stop:always; scroll-margin-bottom:calc((var(--n) - 1 - var(--i)) * var(--hs)); }
+.v-heading { display:flex; align-items:center; gap:2.25rem; margin:0 0 clamp(1.5rem,4vh,2.5rem); font-size:clamp(1.6rem,2.8vw,2.3rem); font-weight:700; line-height:1.25; color:var(--text-primary); }
+.v-heading .stage-number { font-size:clamp(1.4rem,2.4vw,1.9rem); color:#447ddf; min-width:2.6ch; }
+
+/* Cards stacked vertically. Each figure is as large as the column allows while still fitting on one screen. */
+.v-cards { display:flex; flex-direction:column; gap:clamp(2.5rem,7vh,4.5rem); margin-bottom:clamp(2.5rem,7vh,4.5rem); }
+/* scroll-snap-align:none overrides the main page's per-card snapping, which would add extra stops mid-stage. */
+.research-v .research-card { display:flex; flex-direction:column; align-items:flex-start; margin:0; scroll-snap-align:none; }
+.research-v .research-card h3 { font-size:1.2rem; font-weight:700; margin:0 0 .85rem; }
+.research-v .research-card a { display:block; max-width:100%; line-height:0; border:1px solid #e4e7ee; border-radius:12px; overflow:hidden; background:white; }
+.research-v .research-card img { display:block; width:auto; height:auto; max-width:100%; max-height:calc(100svh - var(--n) * var(--hs) - 10rem); }
+.research-v .research-card figcaption,.research-v .research-card>p { max-width:70ch; margin:.85rem 0 0; font-size:1rem; line-height:1.6; color:var(--text-secondary); text-align:left; }
+.research-v article.research-card { width:min(100%,680px); }
+.research-v .retargeting-result { display:flex; flex-direction:column; justify-content:center; width:100%; padding:2rem 2.25rem; border-left:4px solid #72A3FE; background:#f6f7fb; border-radius:12px; }
+.research-v .retargeting-result strong { font-size:clamp(2.75rem,6vw,4.25rem); line-height:1.1; color:#283c5b; }
+.research-v .retargeting-result p { margin-top:.75rem; color:var(--text-secondary); line-height:1.6; }
+.research-v .training-flow { list-style:none; display:flex; flex-direction:column; gap:.6rem; width:100%; margin:0; padding:0; counter-reset:flow; }
+.research-v .training-flow li { counter-increment:flow; display:flex; align-items:center; gap:.75rem; padding:.95rem 1rem; background:#f6f7fb; border-left:3px solid #44aa99; border-radius:8px; font-weight:600; }
+.research-v .training-flow li::before { content:counter(flow); display:grid; place-items:center; width:1.6rem; height:1.6rem; border-radius:50%; background:white; color:#283c5b; font-size:.85rem; }
+.research-v .training-flow li:last-child { border-color:#72A3FE; background:#edf3ff; }
+.research-v .policy-results { width:100%; margin:0; }
+.research-v .policy-results>div { grid-template-columns:150px 1fr 60px; gap:.75rem; margin:1rem 0; }
+.research-v .results-note { text-align:left; margin:.75rem 0 0; }
+
+@media(max-width:600px) {
+  .research-v { --hs:46px; --gutter:1rem; --pad:1.25rem; }
+  .v-bar button { gap:.85rem; }
+  .v-heading { gap:1rem; }
+  .research-v .policy-results>div { grid-template-columns:1fr 55px; }
+  .research-v .policy-results span { grid-column:1/-1; }
+}

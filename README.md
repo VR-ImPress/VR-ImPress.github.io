@@ -31,11 +31,14 @@ Use Settings → Pages → Deploy from a branch → `main` → `/ (root)`. The `
 
 Adapted from [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), which also credits [Nerfies](https://nerfies.github.io/). The template and this website adaptation are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Research text and figures remain the property of their respective authors. Bulma retains its upstream MIT license notice in its stylesheet.
 
-## Video placeholders and research tabs
+## Video placeholders and research sections
 
 - The hero has four muted, looping video elements with still-image posters. Add local `src` paths to `.hero-mosaic video` in `index.html` when ready. Playback respects reduced-motion settings and pauses in background tabs.
 - Replace `.video-placeholder` (between the teaser and abstract) with the project video player and captions.
-- The three research panels support clickable edge previews, process tabs, pagination dots, Left/Right/Home/End keys, and horizontal swipes. Retargeting is shown initially; previews wrap between all three panels. Interaction code is in `static/js/impress.js`.
+- Research sections: the section pins to the screen while scrolling. The open stage's cards slide sideways as you scroll, and the other stages collapse to small titles above and below it. Add cards inside the corresponding `.research-track` in `index.html`. Code is in `static/js/impress.js`.
+- Layout prototypes for comparison (temporary):
+  - `research-vertical.html`: cards stacked vertically, native scrolling with CSS snap points at stage boundaries (`static/css/research-vertical.css`, `static/js/research-vertical.js`).
+  - `research-carousel.html`: the earlier three-panel carousel with edge previews, from commit 42483a6 (`static/css/impress-carousel.css`, `static/js/impress-carousel.js`).
 - The first three authors have equal-contribution markers. All CMU authors share affiliation 1; Bosch is affiliation 4.
 
 ## Palette and logo sources
