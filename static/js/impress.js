@@ -1,8 +1,11 @@
 'use strict';
 
 // Scroll-driven research stages. The section pins as one viewport-height frame and native scrolling is
-// mapped continuously onto it: each stage owns a slice of the section's scroll distance during which its
-// cards slide sideways; the next slice starts immediately (no pause). Inactive stages show only a small title.
+// mapped continuously onto it. Per stage, the section's scroll distance is laid out as:
+//   [cards slide sideways: span] [transition to next stage: T] [next stage's cards ...]
+// During a transition the scroll position is the animation clock: the current stage collapses to a small
+// title while the next one opens, frame by frame (and in reverse when scrolling back up). Each stage's
+// openness is written to --e (CSS interpolates sizes/colors from it).
 // Nothing here cancels or replaces scroll input; it only reads the scroll position.
 (() => {
   const section = document.querySelector('.research-section');
@@ -15,12 +18,13 @@
     strip: el.querySelector('.research-strip'),
     track: el.querySelector('.research-track'),
     bar: el.querySelector('.research-progress span'),
-    travel: 0, ratio: 1, start: 0, span: 0,
+    travel: 0, ratio: 1, start: 0, span: 0, e: -1,
   }));
   section.classList.add('is-pinned');
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
   const last = stages.length - 1;
-  let active = -1;
+  let active = -1, T = 0;
+  const smooth = t => t * t * (3 - 2 * t);
 
   const pos = () => -section.getBoundingClientRect().top;
 
@@ -36,22 +40,38 @@
     });
   }
 
+  // Openness of stage j at section scroll position y: rises over the T before its start, falls over the T
+  // after its cards finish. The first stage is open before the section; the last stays open after it.
+  function openness(j, y) {
+    const s = stages[j], end = s.start + s.span;
+    if (j > 0 && y < s.start) return smooth(clamp(1 - (s.start - y) / T, 0, 1));
+    if (j < last && y > end) return smooth(clamp(1 - (y - end) / T, 0, 1));
+    return 1;
+  }
+
   function render() {
     const y = pos();
-    let i = 0;
-    while (i < last && y >= stages[i].start + stages[i].span) i++;
-    setActive(i);
+    let best = 0;
     stages.forEach((s, j) => {
-      const p = j < i ? 1 : j > i ? 0 : clamp((y - s.start) / s.span, 0, 1);
+      const e = openness(j, y);
+      if (e >= openness(best, y)) best = j; // later stage wins once it is at least half open
+      if (e !== s.e) {
+        s.e = e;
+        s.el.style.setProperty('--e', e.toFixed(4));
+        s.el.style.setProperty('--e2', clamp((e - 0.4) / 0.6, 0, 1).toFixed(4));
+        s.body.style.gridTemplateRows = `${e.toFixed(4)}fr`;
+      }
+      const p = s.span ? clamp((y - s.start) / s.span, 0, 1) : (y >= s.start ? 1 : 0);
       s.track.style.transform = `translateX(${-p * s.travel}px)`;
       s.bar.style.setProperty('--offset', `${p * (1 / s.ratio - 1) * 100}%`);
     });
+    setActive(best);
   }
 
   function layout() {
     const vh = window.innerHeight;
-    // A stage whose cards barely overflow still gets some scroll distance, so it can be reached and read.
-    const minSpan = Math.round(vh * 0.5);
+    // Scroll distance of one stage-to-stage transition.
+    T = Math.round(vh * 0.5);
     section.style.setProperty('--pin-h', `${vh}px`);
     let start = 0;
     for (const s of stages) {
@@ -62,11 +82,11 @@
       s.ratio = full ? Math.min(1, visible / full) : 1;
       s.bar.style.setProperty('--thumb', `${s.ratio * 100}%`);
       s.bar.parentElement.hidden = s.travel < 1;
-      s.span = Math.max(s.travel, minSpan);
+      s.span = s.travel;
       s.start = start;
-      start += s.span;
+      start += s.span + T;
     }
-    section.style.setProperty('--total', `${start}px`);
+    section.style.setProperty('--total', `${start - T}px`);
     render();
   }
 

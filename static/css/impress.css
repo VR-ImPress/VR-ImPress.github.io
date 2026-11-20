@@ -124,7 +124,7 @@ button:focus-visible,a:focus-visible,[tabindex]:focus-visible { outline:3px soli
 /* Research stages. Base (no JS): stacked stages with native horizontal card scrolling.
    With JS (.is-pinned): the section pins as one frame and scrolling is driven stage by stage (see impress.js).
    --gutter is the distance from the screen edge to the 1200px content column; card rows bleed to the screen edge. */
-.research-section { --gutter:max(1.5rem,calc((100vw - 1200px) / 2)); --indent:1.5rem; --fig-h:420px; --card-max:min(84vw,1200px); padding:4rem 0; background:white; overflow:hidden; }
+.research-section { --gutter:max(1.5rem,calc((100vw - 1200px) / 2)); --indent:1.5rem; --hp-s:.85rem; --hp-b:clamp(1rem,3vh,2rem); --gap-s:1.25rem; --gap-b:2.25rem; --num-s:1rem; --num-b:1.9rem; --h2-s:1.05rem; --h2-b:clamp(1.5rem,2.6vw,2.2rem); --bp-t:clamp(1rem,3vh,2rem); --bp-b:clamp(.75rem,2vh,1.5rem); --fig-h:420px; --card-max:min(84vw,1200px); padding:4rem 0; background:white; overflow:hidden; }
 .research-layout { width:100%; }
 .research-stage { margin:0 var(--gutter); border-bottom:1px solid #dfe3ea; }
 .stage-header { display:flex; align-items:center; gap:2.25rem; padding:2.4rem var(--indent); border-bottom:1px solid #dfe3ea; }
@@ -160,30 +160,30 @@ article.research-card { width:clamp(260px,var(--fig-h),460px); }
    JS sets --total (scroll distance consumed by all stages) and toggles .is-active. */
 .research-section.is-pinned { --fig-h:clamp(200px,calc(100svh - 470px),640px); padding:0; height:calc(var(--pin-h,100vh) + var(--total,0px)); overflow:visible; }
 .is-pinned .research-layout { position:sticky; top:0; height:var(--pin-h,100vh); display:flex; flex-direction:column; overflow:hidden; padding:clamp(.5rem,3vh,1.5rem) 0; }
-.is-pinned .research-stage { flex:0 0 auto; display:flex; flex-direction:column; min-height:0; transition:flex-grow .6s cubic-bezier(.2,.7,.2,1); }
-.is-pinned .research-stage.is-active { flex:1 1 0; }
+/* Each stage's look is interpolated from --e (0 = collapsed title, 1 = open), which impress.js sets from the
+   scroll position. There are no time-based transitions here: scrolling through a transition plays it frame by
+   frame, and scrolling back reverses it. The body's grid-template-rows (e fr) is also set inline by JS. */
+.is-pinned .research-stage { --e:0; flex:var(--e) var(--e) auto; display:flex; flex-direction:column; min-height:0; overflow:hidden; }
 .is-pinned .research-stage:last-child { border-bottom:0; }
 .is-pinned .stage-pin { flex:1; display:flex; flex-direction:column; min-height:0; }
-.is-pinned .stage-header { padding:.85rem var(--indent); gap:1.25rem; border-bottom:0; cursor:pointer; transition:padding .5s cubic-bezier(.2,.7,.2,1); }
-.is-pinned .stage-number { font-size:1rem; transition:font-size .5s cubic-bezier(.2,.7,.2,1),color .3s; }
-.is-pinned .stage-header h2 { font-size:1.05rem; color:var(--text-secondary); transition:font-size .5s cubic-bezier(.2,.7,.2,1),color .3s; }
+.is-pinned .stage-header { flex-shrink:0; padding:calc(var(--hp-s) + (var(--hp-b) - var(--hp-s)) * var(--e)) var(--indent); gap:calc(var(--gap-s) + (var(--gap-b) - var(--gap-s)) * var(--e)); border-bottom:1px solid rgba(223,227,234,var(--e)); cursor:pointer; }
+.is-pinned .stage-number { font-size:calc(var(--num-s) + (var(--num-b) - var(--num-s)) * var(--e)); color:color-mix(in srgb,#447ddf calc(var(--e) * 100%),#6b7280); }
+.is-pinned .stage-header h2 { font-size:calc(var(--h2-s) + (var(--h2-b) - var(--h2-s)) * var(--e)); color:color-mix(in srgb,var(--text-primary) calc(var(--e) * 100%),var(--text-secondary)); }
 .is-pinned .stage-header:hover h2,.is-pinned .stage-header:hover .stage-number { color:#447ddf; }
-.is-pinned .is-active .stage-header { padding:clamp(1rem,3vh,2rem) var(--indent); gap:2.25rem; border-bottom:1px solid #dfe3ea; cursor:default; }
-.is-pinned .is-active .stage-number { font-size:1.9rem; color:#447ddf; }
-.is-pinned .is-active .stage-header h2 { font-size:clamp(1.5rem,2.6vw,2.2rem); color:var(--text-primary); }
+.is-pinned .is-active .stage-header { cursor:default; }
 .is-pinned .research-strip { overflow:hidden; scroll-snap-type:none; }
 .is-pinned .research-progress { display:block; }
 .is-pinned .research-progress[hidden] { display:none; }
-.is-pinned .stage-body { grid-template-rows:0fr; transition:grid-template-rows .6s cubic-bezier(.2,.7,.2,1); }
-.is-pinned .stage-body-inner { opacity:0; transform:translateY(16px); padding-top:0; padding-bottom:0; transition:opacity .4s,transform .6s cubic-bezier(.2,.7,.2,1),padding .6s cubic-bezier(.2,.7,.2,1); }
-.is-pinned .is-active .stage-body { grid-template-rows:1fr; }
-.is-pinned .is-active .stage-body-inner { opacity:1; transform:none; padding-top:clamp(1rem,3vh,2rem); padding-bottom:clamp(.75rem,2vh,1.5rem); transition-delay:.15s,.15s,0s; }
+.is-pinned .stage-body { grid-template-rows:0fr; }
+/* Content fades in over the second half of opening (--e2 = later-starting copy of --e, set by JS). */
+.is-pinned .stage-body-inner { opacity:var(--e2,0); transform:translateY(calc((1 - var(--e2,0)) * 24px)); padding-top:calc(var(--bp-t) * var(--e)); padding-bottom:calc(var(--bp-b) * var(--e)); }
 
 @media(max-width:600px) {
   .research-section { --gutter:1rem; --indent:.25rem; --card-max:calc(100vw - 2.5rem); padding:2.5rem 0; }
   .research-section.is-pinned { --fig-h:clamp(160px,calc(100svh - 440px),420px); }
-  .stage-header,.is-pinned .is-active .stage-header { gap:1rem; padding:1.4rem var(--indent); }
-  .stage-number,.is-pinned .is-active .stage-number { font-size:1.35rem; }
+  .research-section { --hp-s:.7rem; --hp-b:1.1rem; --gap-s:.85rem; --gap-b:1rem; --num-b:1.35rem; --h2-b:1.4rem; }
+  .stage-header { gap:1rem; padding:1.4rem var(--indent); }
+  .stage-number { font-size:1.35rem; }
   article.research-card { width:min(78vw,340px); }
   .research-card .policy-results>div { grid-template-columns:1fr 55px; }
   .research-card .policy-results span { grid-column:1/-1; }
