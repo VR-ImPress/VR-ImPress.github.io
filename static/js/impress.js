@@ -2,63 +2,85 @@
 
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 const panels = [...document.querySelectorAll('[role="tabpanel"]')];
-const previous = document.querySelector('#previous-panel');
-const next = document.querySelector('#next-panel');
 const position = document.querySelector('#panel-position');
 const dots = [...document.querySelectorAll('.carousel-dots button')];
-const names = ['Dataset / demo collection', 'Retargeting', 'Policy training'];
-const previews = [
-  '<img src="static/images/example-tasks.png" alt="" draggable="false"><img src="static/images/data-collection.png" alt="" draggable="false">',
-  '<img src="static/images/retargeting.png" alt="" draggable="false">',
-  '<span class="preview-flow"><span>Retargeted trajectories</span><i></i><span>Diffusion policy</span><i></i><span>Contact-guided RL</span></span><span class="preview-chart"><i style="--value:32.9%;background:#88ccee"></i><i style="--value:52.1%;background:#44aa99"></i><i style="--value:55.7%;background:#72A3FE"></i></span>'
-];
+const surface = document.querySelector('.research-panels');
+const arrowIn = document.querySelector('.panel-arrow-in');
+const arrowOut = document.querySelector('.panel-arrow-out');
+const stage = document.querySelector('.carousel-stage');
+let arrowTimer;
+const names = ['Demo Collection', 'Retargeting', 'Policy Training'];
+const last = tabs.length - 1;
 let active = 1;
-function updatePreview(button, index) {
-  button.setAttribute('aria-label', `View ${names[index]}`);
-  button.querySelector('.preview-title').textContent = names[index];
-  button.querySelector('.preview-content').innerHTML = previews[index];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+// When the Policy Training panel comes into focus, its result bars grow from zero.
+function growBars(panel) {
+  if (reduceMotion.matches) return;
+  panel.querySelectorAll('.bar').forEach((bar, i) => {
+    bar.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }],
+      { duration: 900, delay: 380 + i * 110, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'backwards' });
+  });
+}
+// Sequential (non-looping) pipeline: collection -> retargeting -> policy training.
+function layoutPanel(panel, offset) {
+  const side = Math.abs(offset) === 1;
+  panel.hidden = false;
+  panel.classList.toggle('is-active', offset === 0);
+  panel.classList.toggle('is-side', side);
+  panel.classList.toggle('is-away', Math.abs(offset) > 1);
+  // Same transform function list in every state so the browser interpolates each term smoothly.
+  const depth = Math.min(Math.abs(offset), 1);
+  panel.style.transform = `translateX(${offset * 82}%) translateZ(${-140 * depth}px) rotateY(${offset * 14}deg) scale(${1 - .14 * depth})`;
+  panel.tabIndex = offset === 0 ? 0 : -1;
+  if (offset === 0) panel.removeAttribute('aria-hidden');
+  else panel.setAttribute('aria-hidden', 'true');
+  [...panel.children].forEach(child => { child.inert = offset !== 0; });
 }
 
-
 function selectPanel(index, focus = false) {
-  const oldActive = active;
-  active = (index + tabs.length) % tabs.length;
+  const previous = active;
+  active = Math.max(0, Math.min(last, index));
   tabs.forEach((tab, i) => {
     tab.setAttribute('aria-selected', String(i === active));
     tab.tabIndex = i === active ? 0 : -1;
-    panels[i].hidden = i !== active;
+    layoutPanel(panels[i], i - active);
   });
-  updatePreview(previous, (active + tabs.length - 1) % tabs.length);
-  updatePreview(next, (active + 1) % tabs.length);
   dots.forEach((dot, i) => {
     if (i === active) dot.setAttribute('aria-current', 'true');
     else dot.removeAttribute('aria-current');
   });
-  position.textContent = `${names[active]}, panel ${active + 1} of ${tabs.length}`;
-  if (oldActive !== active && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const direction = index > oldActive ? 1 : -1;
-    panels[active].animate([{opacity:0, transform:`translateX(${direction * 24}px)`}, {opacity:1, transform:'translateX(0)'}], {duration:250, easing:'ease-out'});
+  // Hide the progression arrows while panels slide, and bring them back once the move settles.
+  if (previous !== active && !reduceMotion.matches) {
+    clearTimeout(arrowTimer);
+    stage.classList.add('is-moving');
+    arrowTimer = setTimeout(() => stage.classList.remove('is-moving'), 750);
   }
+  arrowIn.classList.toggle('is-hidden', active === 0);
+  arrowOut.classList.toggle('is-hidden', active === last);
+  position.textContent = `${names[active]}, panel ${active + 1} of ${tabs.length}`;
+  if (previous !== active) growBars(panels[active]);
   if (focus) tabs[active].focus({ preventScroll: true });
 }
 
 tabs.forEach((tab, i) => {
   tab.addEventListener('click', () => selectPanel(i));
   tab.addEventListener('keydown', event => {
-    const indices = { ArrowRight: (active + 1) % tabs.length, ArrowLeft: (active + tabs.length - 1) % tabs.length, Home: 0, End: tabs.length - 1 };
+    const indices = { ArrowRight: active + 1, ArrowLeft: active - 1, Home: 0, End: last };
     if (event.key in indices) {
       event.preventDefault();
       selectPanel(indices[event.key], true);
     }
   });
 });
-previous.addEventListener('click', () => selectPanel(active - 1));
-next.addEventListener('click', () => selectPanel(active + 1));
+panels.forEach((panel, i) => panel.addEventListener('click', () => { if (i !== active) selectPanel(i); }));
 dots.forEach((dot, i) => dot.addEventListener('click', () => selectPanel(i)));
+// Place panels without animating on first load, then enable transitions.
+surface.classList.add('is-static');
 selectPanel(active);
+requestAnimationFrame(() => requestAnimationFrame(() => surface.classList.remove('is-static')));
 
 // Pointer gestures support touch, stylus, and mouse drags without blocking vertical scrolling.
-const surface = document.querySelector('.research-panels');
 surface.addEventListener('dragstart', event => event.preventDefault());
 let start = null;
 let suppressClick = false;
@@ -94,3 +116,26 @@ function updateVideos() {
 motion.addEventListener('change', updateVideos);
 document.addEventListener('visibilitychange', updateVideos);
 updateVideos();
+
+// Figure lightbox: clicking a figure opens the full-resolution image in a modal dialog.
+const lightbox = document.createElement('dialog');
+lightbox.className = 'lightbox';
+lightbox.setAttribute('aria-label', 'Enlarged figure');
+lightbox.innerHTML = '<button type="button" class="lightbox-close" aria-label="Close enlarged figure">×</button><figure><img alt=""><figcaption class="lightbox-caption"></figcaption></figure>';
+document.body.append(lightbox);
+const lightboxImage = lightbox.querySelector('img');
+const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+document.querySelectorAll('.research-figure a').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey) return;
+    event.preventDefault();
+    const image = link.querySelector('img');
+    lightboxImage.src = link.href;
+    lightboxImage.alt = image ? image.alt : '';
+    lightboxCaption.textContent = link.dataset.caption || '';
+    lightboxCaption.hidden = !link.dataset.caption;
+    lightbox.showModal();
+  });
+});
+lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
+lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
