@@ -17,25 +17,28 @@
   <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  <link rel="stylesheet" href="static/css/impress.css?v=20261120b">
-  <script defer src="static/js/impress.js?v=20261120b"></script>
+  <link rel="stylesheet" href="static/css/impress.css?v=mosaic-8x8">
+  <link rel="stylesheet" href="static/css/demo-viewer.css?v=scrolling-tabs">
+  <script defer src="static/js/impress.js?v=dataset-renders"></script>
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+  <script defer src="static/js/demo-viewer.js?v=contact-timing"></script>
+  <script defer src="static/js/dataset-tasks.js?v=scrolling-tabs"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
   <nav class="container is-max-desktop" aria-label="Main navigation">
     <a class="wordmark" href="#">ImPress<span class="pressure-mark" aria-hidden="true">•••</span></a>
-    <div class="nav-links"><a href="#overview">Overview</a><a href="#research">Research</a><a href="#citation">Resources</a></div>
+    <div class="nav-links"><a href="#overview">Overview</a><a href="#demos">Demos</a><a href="#research">Research</a><a href="#citation">Resources</a></div>
   </nav>
 </header>
 <main id="main-content">
 <section class="hero publication-header">
-  <div class="hero-mosaic" aria-hidden="true">
-    <!-- TODO: Add src to these muted, looping videos when demo clips are ready. Posters are temporary stills. -->
-    <video muted loop playsinline preload="none" poster="static/images/example-tasks.png" tabindex="-1"></video>
-    <video muted loop playsinline preload="none" poster="static/images/retargeting.png" tabindex="-1"></video>
-    <video muted loop playsinline preload="none" poster="static/images/retargeting.png" tabindex="-1"></video>
-    <video muted loop playsinline preload="none" poster="static/images/example-tasks.png" tabindex="-1"></video>
+  <div class="hero-mosaic hero-render-mosaic" aria-hidden="true">
+    <video muted loop playsinline preload="none" tabindex="-1" data-loop-render
+      src="static/videos/dataset-mosaic.mp4?v=8x8" poster="static/videos/dataset-mosaic.jpg?v=8x8"></video>
   </div>
   <div class="hero-body"><div class="container is-max-desktop has-text-centered">
     <h1 class="title publication-title"><span class="project-name">ImPress</span><span class="paper-title">Imitation Learning from VR Human Demonstrations via Contact Pressure-Guided Retargeting</span></h1>
@@ -43,7 +46,7 @@
       <!-- TODO: Replace each disabled button with a link when the resource is released. -->
       <button class="button is-rounded" disabled>Paper <span class="resource-status">Coming soon</span></button>
       <button class="button is-rounded" disabled>Code <span class="resource-status">Coming soon</span></button>
-      <button class="button is-rounded" disabled>Dataset <span class="resource-status">Coming soon</span></button>
+      <a class="button is-rounded" href="#dataset-viewer">Dataset</a>
     </div>
   </div></div>
 </section>
@@ -71,19 +74,11 @@
 
   </div>
 </section>
-<section class="section overview-section" id="overview" aria-label="ImPress overview">
+<section class="section overview-section" id="overview" aria-label="ImPress demonstration renders">
   <div class="container is-max-desktop">
-    <figure class="research-figure">
-      <a href="static/images/overview.png" aria-label="View the full-resolution ImPress overview"><img src="static/images/overview.png" alt="ImPress pipeline: human demonstrations in virtual reality, pressure-guided robot retargeting, and contact-guided policy learning across tasks and robot embodiments." fetchpriority="high"></a>
-    </figure>
-  </div>
-</section>
-<section class="section video-section" aria-label="Project video">
-  <div class="container is-max-desktop">
-    <!-- TODO: Replace this placeholder with the project video, controls, and caption track. -->
-    <div class="video-placeholder" role="img" aria-label="Project video placeholder, coming soon">
-      <span class="play-symbol" aria-hidden="true">▷</span><h2>ImPress in action</h2><p>Project video coming soon</p>
-    </div>
+    <video class="overview-render" muted loop controls playsinline preload="none" data-loop-render
+      src="static/videos/dataset-mosaic.mp4?v=8x8" poster="static/videos/dataset-mosaic.jpg?v=8x8"
+      width="2048" height="1152" aria-label="Tiled loop of rendered human manipulation demonstrations"></video>
   </div>
 </section>
 <section class="section hero is-light" id="abstract"><div class="container is-max-desktop">
@@ -92,6 +87,59 @@
   <div class="content abstract-copy"><p>Dexterous manipulation depends on how the hand interacts with an object and how the object interacts with its surroundings. Contact pressure provides a representation of these interactions and can guide their transfer from humans to robots. We present ImPress, a framework built around contact pressure for learning dexterous robot manipulation from immersive virtual reality (VR) human demonstrations. First, the ImPress demonstration collection pipeline lets operators demonstrate manipulation tasks directly inside a physics simulator, recording dense contact pressure fields without instrumenting the hands or objects. The resulting ImPress dataset contains 7,100 demonstrations of 71 contact-rich manipulation tasks. Each demonstration records hand-object and, where present, object-object contact pressure, and can be replayed directly in simulation. Second, the ImPress retargeting pipeline uses the recorded pressure to guide where each robot makes contact during model predictive path integral (MPPI) control, without requiring correspondence between human and robot hand parts. Across eight tasks and three robot end effectors, it achieves a success rate of 72.4% compared with 32.0% for the strongest baseline and leads on every task-embodiment pair. Third, the ImPress policy learning pipeline trains diffusion policies on the retargeted trajectories and fine-tunes them with reinforcement learning, using a reward that preserves the robot&#x27;s contacts from its own successful executions. On test object initial states, contact-guided reinforcement learning improves average success from 32.9% with behavior cloning to 55.7%, versus 52.1% for motion-guided RL, with higher average success on all tasks.</p></div>
   </details>
 </div></section>
+<section class="section" id="demos" aria-labelledby="demo-heading">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="demo-heading">Interactive 3D demos</h2>
+    <div class="demo-panel" data-demo-catalog="static/demos/catalog.json?v=contact-timing">
+      <div class="demo-toolbar">
+        <label for="demo-select">Demonstration</label>
+        <select id="demo-select" class="demo-select" disabled></select>
+      </div>
+      <div class="demo-stage">
+        <canvas class="demo-canvas" tabindex="0" aria-label="Interactive 3D replay"
+          aria-describedby="demo-help"></canvas>
+        <p class="demo-status" role="status" id="demo-status">Loading the 3D viewer…</p>
+      </div>
+      <div class="demo-controls">
+        <button class="button" type="button" id="demo-play" disabled>Play</button>
+        <input id="demo-time" type="range" min="0" max="0" value="0" step="0.01"
+          aria-label="Playback position" disabled>
+        <span id="demo-clock">0.00 / 0.00 s</span>
+        <button class="button" type="button" id="demo-key-time" disabled>Key moment</button>
+        <button class="button" type="button" id="demo-reset" disabled>Reset view</button>
+      </div>
+      <div class="demo-contact">
+        <label><input type="checkbox" id="demo-contact-toggle" disabled> Contact patches</label>
+        <span id="demo-contact-legend" title="Patches are visible through the hand and object surfaces." hidden><span class="contact-ramp" aria-hidden="true"></span> 0–0.25+ mm penetration</span>
+        <span id="demo-contact-status" role="status"></span>
+        <span id="demo-no-contact" hidden>No recorded hand–object contact</span>
+      </div>
+      <p class="demo-help" id="demo-help">Drag to orbit. Scroll or pinch to zoom. Use the timeline to scrub.</p>
+      <noscript><p class="demo-help">Enable JavaScript to replay the 3D demos.</p></noscript>
+    </div>
+  </div>
+</section>
+<section class="section" id="dataset-viewer" aria-labelledby="dataset-viewer-heading">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="dataset-viewer-heading">Dataset and renders</h2>
+    <div id="dataset-tasks" class="dataset-browser" data-task-catalog="static/demos/tasks.json?v=dataset-renders" hidden>
+      <div class="task-tabs" role="tablist" aria-label="Task classification"></div>
+      <div id="task-category-panel" role="tabpanel">
+        <h3 id="render-title">Flip a mug upright</h3>
+        <div class="dataset-render-layout">
+          <video id="task-video" controls playsinline muted preload="metadata" width="960" height="540"
+            aria-labelledby="render-title"></video>
+          <ul class="task-results" aria-label="Choose a task video"></ul>
+        </div>
+        <a id="task-replay" class="task-replay" href="#demos" hidden>Replay in interactive 3D</a>
+      </div>
+    </div>
+    <noscript>
+      <video class="overview-render" controls playsinline src="static/videos/renders/flip_mug_upright.mp4"
+        aria-label="Rendered demonstration of flipping a mug upright"></video>
+    </noscript>
+  </div>
+</section>
 <section class="section research-section" id="research" aria-label="ImPress research pipeline">
   <div class="research-layout">
     <article class="research-stage">
@@ -173,7 +221,7 @@
 <section class="section citation-section" id="citation"><div class="container is-max-desktop has-text-centered">
   <h2 class="title is-3">Citation &amp; resources</h2>
   <!-- TODO: Add the official BibTeX entry and paper, code, data, and video links on release. -->
-  <p>The paper, code, dataset, and citation details are coming soon.</p>
+  <p>The paper, code, and citation details are coming soon.</p>
 </div></section>
 </main>
 <footer class="footer"><div class="container is-max-desktop has-text-centered"><p class="attribution">Website adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a> and <a href="https://nerfies.github.io/">Nerfies</a>.<br>Template adaptation licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Research content and figures belong to their respective authors.</p></div></footer>

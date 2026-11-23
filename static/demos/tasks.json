@@ -1,0 +1,434 @@
+{
+  "sourceRevision": "a3bb58a145e4421e6e1aa11c6a834274e23a34bb",
+  "tasks": [
+    {
+      "id": "automate_assembly_0p3mm_fixed",
+      "category": "insertion",
+      "title": "Automate assembly 0p3mm",
+      "video": "../videos/renders/automate_assembly_0p3mm_fixed.mp4"
+    },
+    {
+      "id": "banana_pickup",
+      "category": "pick and lift",
+      "title": "Banana pickup",
+      "video": "../videos/renders/banana_pickup.mp4"
+    },
+    {
+      "id": "battery_spring_holder_fixed",
+      "category": "insertion",
+      "title": "Battery spring holder",
+      "video": "../videos/renders/battery_spring_holder_fixed.mp4"
+    },
+    {
+      "id": "bolt_nut_in_air",
+      "category": "screwing",
+      "title": "Bolt nut in air",
+      "video": "../videos/renders/bolt_nut_in_air.mp4"
+    },
+    {
+      "id": "book_into_shelf_gap_fixed",
+      "category": "insertion",
+      "title": "Book into shelf gap",
+      "video": "../videos/renders/book_into_shelf_gap_fixed.mp4"
+    },
+    {
+      "id": "bottle_cap_tighten",
+      "category": "screwing",
+      "title": "Bottle cap tighten",
+      "video": "../videos/renders/bottle_cap_tighten.mp4"
+    },
+    {
+      "id": "bottle_uncap_bimanual",
+      "category": "cap removal",
+      "title": "Bottle uncap bimanual",
+      "video": "../videos/renders/bottle_uncap_bimanual.mp4"
+    },
+    {
+      "id": "bowl_pickup",
+      "category": "pick and lift",
+      "title": "Bowl pickup",
+      "video": "../videos/renders/bowl_pickup.mp4"
+    },
+    {
+      "id": "box_open_fixed",
+      "category": "articulation",
+      "title": "Box open",
+      "video": "../videos/renders/box_open_fixed.mp4"
+    },
+    {
+      "id": "can_pickup",
+      "category": "pick and lift",
+      "title": "Can pickup",
+      "video": "../videos/renders/can_pickup.mp4"
+    },
+    {
+      "id": "capsulemachine_lever_fixed",
+      "category": "articulation",
+      "title": "Capsulemachine lever",
+      "video": "../videos/renders/capsulemachine_lever_fixed.mp4"
+    },
+    {
+      "id": "childproof_cap",
+      "category": "cap removal",
+      "title": "Childproof cap",
+      "video": "../videos/renders/childproof_cap.mp4"
+    },
+    {
+      "id": "cube_pickup",
+      "category": "pick and lift",
+      "title": "Cube pickup",
+      "video": "../videos/renders/cube_pickup.mp4"
+    },
+    {
+      "id": "cube_reorient",
+      "category": "reorientation",
+      "title": "Cube reorient",
+      "video": "../videos/renders/cube_reorient.mp4"
+    },
+    {
+      "id": "cylinder_pickup",
+      "category": "pick and lift",
+      "title": "Cylinder pickup",
+      "video": "../videos/renders/cylinder_pickup.mp4"
+    },
+    {
+      "id": "drawer_recessed_pull_fixed",
+      "category": "articulation",
+      "title": "Drawer recessed pull",
+      "video": "../videos/renders/drawer_recessed_pull_fixed.mp4"
+    },
+    {
+      "id": "duplo_stack",
+      "category": "insertion",
+      "title": "Duplo stack",
+      "video": "../videos/renders/duplo_stack.mp4"
+    },
+    {
+      "id": "espressomachine_lever_fixed",
+      "category": "articulation",
+      "title": "Espressomachine lever",
+      "video": "../videos/renders/espressomachine_lever_fixed.mp4"
+    },
+    {
+      "id": "factory_rect_peg_insert_fixed",
+      "category": "insertion",
+      "title": "Factory rect peg insert",
+      "video": "../videos/renders/factory_rect_peg_insert_fixed.mp4"
+    },
+    {
+      "id": "flip_mug_upright",
+      "category": "reorientation",
+      "title": "Flip a mug upright",
+      "demo": "mug-flip",
+      "video": "../videos/renders/flip_mug_upright.mp4"
+    },
+    {
+      "id": "furniture_cabinet",
+      "category": "furniture assembly",
+      "title": "Furniture cabinet",
+      "video": "../videos/renders/furniture_cabinet.mp4"
+    },
+    {
+      "id": "furniture_chair",
+      "category": "furniture assembly",
+      "title": "Furniture chair",
+      "video": "../videos/renders/furniture_chair.mp4"
+    },
+    {
+      "id": "furniture_drawer_fixed",
+      "category": "furniture assembly",
+      "title": "Furniture drawer",
+      "video": "../videos/renders/furniture_drawer_fixed.mp4"
+    },
+    {
+      "id": "furniture_lamp_fixed",
+      "category": "furniture assembly",
+      "title": "Furniture lamp",
+      "video": "../videos/renders/furniture_lamp_fixed.mp4"
+    },
+    {
+      "id": "furniture_one_leg_fixed",
+      "category": "furniture assembly",
+      "title": "Furniture one leg",
+      "video": "../videos/renders/furniture_one_leg_fixed.mp4"
+    },
+    {
+      "id": "furniture_round_table_fixed",
+      "category": "furniture assembly",
+      "title": "Furniture round table",
+      "video": "../videos/renders/furniture_round_table_fixed.mp4"
+    },
+    {
+      "id": "furniture_stool_fixed",
+      "category": "furniture assembly",
+      "title": "Furniture stool",
+      "video": "../videos/renders/furniture_stool_fixed.mp4"
+    },
+    {
+      "id": "gear_mesh_fixed",
+      "category": "insertion",
+      "title": "Gear mesh",
+      "video": "../videos/renders/gear_mesh_fixed.mp4"
+    },
+    {
+      "id": "hammer_nail_fixed",
+      "category": "tool use",
+      "title": "Hammer nail",
+      "video": "../videos/renders/hammer_nail_fixed.mp4"
+    },
+    {
+      "id": "hammer_pull_then_drive_fixed",
+      "category": "tool use",
+      "title": "Hammer pull then drive",
+      "video": "../videos/renders/hammer_pull_then_drive_fixed.mp4"
+    },
+    {
+      "id": "handover",
+      "category": "handover",
+      "title": "Handover",
+      "video": "../videos/renders/handover.mp4"
+    },
+    {
+      "id": "hang_mug_on_rack_fixed",
+      "category": "insertion",
+      "title": "Hang mug on rack",
+      "video": "../videos/renders/hang_mug_on_rack_fixed.mp4"
+    },
+    {
+      "id": "hook_pull_cube_fixed",
+      "category": "tool use",
+      "title": "Hook pull cube",
+      "video": "../videos/renders/hook_pull_cube_fixed.mp4"
+    },
+    {
+      "id": "ketchup_open",
+      "category": "articulation",
+      "title": "Ketchup open",
+      "video": "../videos/renders/ketchup_open.mp4"
+    },
+    {
+      "id": "laptop_open_fixed",
+      "category": "articulation",
+      "title": "Laptop open",
+      "video": "../videos/renders/laptop_open_fixed.mp4"
+    },
+    {
+      "id": "lift_peg_upright",
+      "category": "reorientation",
+      "title": "Lift peg upright",
+      "video": "../videos/renders/lift_peg_upright.mp4"
+    },
+    {
+      "id": "microwave_open_fixed",
+      "category": "articulation",
+      "title": "Microwave open",
+      "video": "../videos/renders/microwave_open_fixed.mp4"
+    },
+    {
+      "id": "nema_5_15_plug_fixed",
+      "category": "insertion",
+      "title": "Nema 5 15 plug",
+      "video": "../videos/renders/nema_5_15_plug_fixed.mp4"
+    },
+    {
+      "id": "notebook_open",
+      "category": "articulation",
+      "title": "Notebook open",
+      "video": "../videos/renders/notebook_open.mp4"
+    },
+    {
+      "id": "oakink2_mug_pickup",
+      "category": "pick and lift",
+      "title": "Oakink2 mug pickup",
+      "video": "../videos/renders/oakink2_mug_pickup.mp4"
+    },
+    {
+      "id": "mixer_open",
+      "category": "articulation",
+      "title": "Open a stand mixer",
+      "demo": "mixer-open",
+      "video": "../videos/renders/mixer_open.mp4"
+    },
+    {
+      "id": "padlock_key_turn_fixed",
+      "category": "tool use",
+      "title": "Padlock key turn",
+      "video": "../videos/renders/padlock_key_turn_fixed.mp4"
+    },
+    {
+      "id": "peg_insertion_side_fixed",
+      "category": "insertion",
+      "title": "Peg insertion side",
+      "video": "../videos/renders/peg_insertion_side_fixed.mp4"
+    },
+    {
+      "id": "pen_cap_press_fit",
+      "category": "insertion",
+      "title": "Pen cap press fit",
+      "video": "../videos/renders/pen_cap_press_fit.mp4"
+    },
+    {
+      "id": "pipe_push_fit_fixed",
+      "category": "insertion",
+      "title": "Pipe push fit",
+      "video": "../videos/renders/pipe_push_fit_fixed.mp4"
+    },
+    {
+      "id": "pivot_box_against_wall_fixed",
+      "category": "non-prehensile",
+      "title": "Pivot box against wall",
+      "video": "../videos/renders/pivot_box_against_wall_fixed.mp4"
+    },
+    {
+      "id": "plate_into_dish_rack_fixed",
+      "category": "insertion",
+      "title": "Plate into dish rack",
+      "video": "../videos/renders/plate_into_dish_rack_fixed.mp4"
+    },
+    {
+      "id": "plug_charger_fixed",
+      "category": "insertion",
+      "title": "Plug charger",
+      "video": "../videos/renders/plug_charger_fixed.mp4"
+    },
+    {
+      "id": "poke_cube_with_peg_fixed",
+      "category": "tool use",
+      "title": "Poke cube with peg",
+      "video": "../videos/renders/poke_cube_with_peg_fixed.mp4"
+    },
+    {
+      "id": "pour_balls_cup_to_bowl",
+      "category": "tool use",
+      "title": "Pour balls cup to bowl",
+      "video": "../videos/renders/pour_balls_cup_to_bowl.mp4"
+    },
+    {
+      "id": "power_drill_pickup",
+      "category": "pick and lift",
+      "title": "Power drill pickup",
+      "video": "../videos/renders/power_drill_pickup.mp4"
+    },
+    {
+      "id": "pry_lid_screwdriver_fixed",
+      "category": "tool use",
+      "title": "Pry lid screwdriver",
+      "video": "../videos/renders/pry_lid_screwdriver_fixed.mp4"
+    },
+    {
+      "id": "push_t",
+      "category": "non-prehensile",
+      "title": "Push t",
+      "video": "../videos/renders/push_t.mp4"
+    },
+    {
+      "id": "rj45_insert_fixed",
+      "category": "insertion",
+      "title": "Rj45 insert",
+      "video": "../videos/renders/rj45_insert_fixed.mp4"
+    },
+    {
+      "id": "round_peg_hole_tight_0p3mm_fixed",
+      "category": "insertion",
+      "title": "Round peg hole tight 0p3mm",
+      "video": "../videos/renders/round_peg_hole_tight_0p3mm_fixed.mp4"
+    },
+    {
+      "id": "scissors_open_close",
+      "category": "articulation",
+      "title": "Scissors open close",
+      "video": "../videos/renders/scissors_open_close.mp4"
+    },
+    {
+      "id": "slide_card_to_edge_fixed",
+      "category": "pick and lift",
+      "title": "Slide card to edge",
+      "video": "../videos/renders/slide_card_to_edge_fixed.mp4"
+    },
+    {
+      "id": "spoon_scoop_ball",
+      "category": "tool use",
+      "title": "Spoon scoop ball",
+      "video": "../videos/renders/spoon_scoop_ball.mp4"
+    },
+    {
+      "id": "square_peg_socket_0p3mm_fixed",
+      "category": "insertion",
+      "title": "Square peg socket 0p3mm",
+      "video": "../videos/renders/square_peg_socket_0p3mm_fixed.mp4"
+    },
+    {
+      "id": "square_peg_socket_bimanual_0p3mm",
+      "category": "insertion",
+      "title": "Square peg socket bimanual 0p3mm",
+      "video": "../videos/renders/square_peg_socket_bimanual_0p3mm.mp4"
+    },
+    {
+      "id": "squeeze_lift_wide_box",
+      "category": "pick and lift",
+      "title": "Squeeze lift wide box",
+      "video": "../videos/renders/squeeze_lift_wide_box.mp4"
+    },
+    {
+      "id": "stapler_press",
+      "category": "articulation",
+      "title": "Stapler press",
+      "video": "../videos/renders/stapler_press.mp4"
+    },
+    {
+      "id": "timer_dial_set",
+      "category": "articulation",
+      "title": "Timer dial set",
+      "video": "../videos/renders/timer_dial_set.mp4"
+    },
+    {
+      "id": "toolbox_latch_then_lid_fixed",
+      "category": "articulation",
+      "title": "Toolbox latch then lid",
+      "video": "../videos/renders/toolbox_latch_then_lid_fixed.mp4"
+    },
+    {
+      "id": "valve_wheel_turn_fixed",
+      "category": "articulation",
+      "title": "Turn a valve wheel",
+      "demo": "valve-wheel",
+      "video": "../videos/renders/valve_wheel_turn_fixed.mp4"
+    },
+    {
+      "id": "two_cubes",
+      "category": "pick and lift",
+      "title": "Two cubes",
+      "video": "../videos/renders/two_cubes.mp4"
+    },
+    {
+      "id": "two_cubes_one_hand",
+      "category": "pick and lift",
+      "title": "Two cubes one hand",
+      "video": "../videos/renders/two_cubes_one_hand.mp4"
+    },
+    {
+      "id": "usb_a_insert_fixed",
+      "category": "insertion",
+      "title": "Usb a insert",
+      "video": "../videos/renders/usb_a_insert_fixed.mp4"
+    },
+    {
+      "id": "waffleiron_open",
+      "category": "articulation",
+      "title": "Waffleiron open",
+      "video": "../videos/renders/waffleiron_open.mp4"
+    },
+    {
+      "id": "walk_heavy_crate",
+      "category": "non-prehensile",
+      "title": "Walk heavy crate",
+      "video": "../videos/renders/walk_heavy_crate.mp4"
+    },
+    {
+      "id": "wrench_turn_nut_fixed",
+      "category": "tool use",
+      "title": "Wrench turn nut",
+      "video": "../videos/renders/wrench_turn_nut_fixed.mp4"
+    }
+  ]
+}

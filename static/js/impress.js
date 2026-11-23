@@ -115,14 +115,37 @@
   layout();
 })();
 
-// Adding a video src enables the mosaic, with reduced-motion support and graceful poster fallback.
-const motion = matchMedia('(prefers-reduced-motion: reduce)');
-function updateVideos() {
-  document.querySelectorAll('.hero-mosaic video').forEach(video => {
-    if (motion.matches || document.hidden) video.pause();
-    else if (video.getAttribute('src') || video.querySelector('source[src]')) video.play().catch(() => {});
+const heroMosaics = document.querySelectorAll('.hero-mosaic video, [data-loop-render]');
+if (heroMosaics.length) {
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const visibleVideos = new Set();
+  const pausedByUser = new WeakSet();
+  const pausedByPage = new WeakSet();
+
+  function updateVideo(video) {
+    if (visibleVideos.has(video) && !document.hidden && !reducedMotion.matches && !pausedByUser.has(video)) {
+      video.play().catch(() => {});
+    } else if (!video.paused) {
+      pausedByPage.add(video);
+      video.pause();
+    }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    for (const { target, isIntersecting } of entries) {
+      if (isIntersecting) visibleVideos.add(target);
+      else visibleVideos.delete(target);
+      updateVideo(target);
+    }
+  }, { threshold: 0.2 });
+  heroMosaics.forEach((video) => {
+    video.addEventListener('pause', () => {
+      if (!pausedByPage.delete(video)) pausedByUser.add(video);
+    });
+    video.addEventListener('play', () => pausedByUser.delete(video));
+    observer.observe(video);
   });
+  const updateVideos = () => heroMosaics.forEach(updateVideo);
+  reducedMotion.addEventListener('change', updateVideos);
+  document.addEventListener('visibilitychange', updateVideos);
 }
-motion.addEventListener('change', updateVideos);
-document.addEventListener('visibilitychange', updateVideos);
-updateVideos();

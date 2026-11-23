@@ -197,3 +197,21 @@ article.research-card { width:clamp(260px,var(--fig-h),460px); }
 .abstract-toggle[open] summary::after { transform:rotate(-135deg); }
 .abstract-toggle summary:hover .title { color:#447ddf!important; }
 .abstract-toggle .abstract-copy { margin-top:1.5rem; }
+
+.hero-render-mosaic {
+  display: block;
+}
+
+.hero-render-mosaic video {
+  display: block;
+  object-fit: cover;
+}
+
+.overview-render {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  background: #e9e9e9;
+}

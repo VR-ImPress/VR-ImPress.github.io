@@ -1,0 +1,31 @@
+{
+  "demos": [
+    {
+      "id": "mug-flip",
+      "title": "Flip a mug upright",
+      "model": "mug-flip.glb?v=contact-timing",
+      "cameraTarget": "0.30m 1.06m 0.14m",
+      "cameraOrbit": "-62deg 63deg 0.98m",
+      "keyTime": 5.5,
+      "contacts": "mug-flip.contacts.gz?v=contact-timing"
+    },
+    {
+      "id": "mixer-open",
+      "title": "Open a stand mixer",
+      "model": "mixer-open.glb?v=contact-timing",
+      "cameraTarget": "0.43m 1.17m 0.17m",
+      "cameraOrbit": "-48deg 66deg 1.2m",
+      "keyTime": 4,
+      "contacts": "mixer-open.contacts.gz?v=contact-timing"
+    },
+    {
+      "id": "valve-wheel",
+      "title": "Turn a valve wheel",
+      "model": "valve-wheel.glb?v=contact-timing",
+      "cameraTarget": "0.53m 1.08m 0.23m",
+      "cameraOrbit": "-62deg 60deg 0.94m",
+      "keyTime": 4,
+      "contacts": "valve-wheel.contacts.gz?v=contact-timing"
+    }
+  ]
+}
