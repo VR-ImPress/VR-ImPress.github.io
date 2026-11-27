@@ -34,7 +34,7 @@ Adapted from [Academic Project Page Template](https://github.com/eliahuhorwitz/A
 ## Videos and research sections
 
 - The hero uses `static/videos/dataset-mosaic.mp4`, an 8×8 tiled loop that shows all 71 supplied renders over 12 seconds. Automatic playback respects reduced motion and pauses when the video scrolls offscreen.
-- The overview plays `static/videos/impress-supplementary.mp4` through the browser’s video controls.
+- The overview and dataset preview videos start muted when visible and respect reduced-motion preferences. The overview uses `static/videos/impress-supplementary.mp4`.
 - The homepage stacks the research cards vertically and uses sticky stage titles with native scroll snapping. Add cards inside the corresponding `.v-cards` in `index.html`. The layout and stage navigation use `static/css/research-vertical.css` and `static/js/research-vertical.js`.
 - Layout prototypes for comparison (temporary):
   - `research-vertical.html`: the standalone prototype for the homepage's research layout.

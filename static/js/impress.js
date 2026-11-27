@@ -115,16 +115,19 @@
   layout();
 })();
 
-const heroMosaics = document.querySelectorAll('.hero-mosaic video, [data-loop-render]');
-if (heroMosaics.length) {
+const autoplayVideos = document.querySelectorAll('.hero-mosaic video, [data-autoplay-video]');
+if (autoplayVideos.length) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const visibleVideos = new Set();
   const pausedByUser = new WeakSet();
   const pausedByPage = new WeakSet();
 
   function updateVideo(video) {
-    if (visibleVideos.has(video) && !document.hidden && !reducedMotion.matches && !pausedByUser.has(video)) {
-      video.play().catch(() => {});
+    const visible = visibleVideos.has(video) && !document.hidden;
+    if (visible) {
+      if (!reducedMotion.matches && video.src && video.paused && !video.ended && !pausedByUser.has(video)) {
+        video.play().catch(() => {});
+      }
     } else if (!video.paused) {
       pausedByPage.add(video);
       video.pause();
@@ -132,20 +135,24 @@ if (heroMosaics.length) {
   }
 
   const observer = new IntersectionObserver((entries) => {
-    for (const { target, isIntersecting } of entries) {
-      if (isIntersecting) visibleVideos.add(target);
+    for (const { target, intersectionRatio } of entries) {
+      if (intersectionRatio >= 0.2) visibleVideos.add(target);
       else visibleVideos.delete(target);
       updateVideo(target);
     }
   }, { threshold: 0.2 });
-  heroMosaics.forEach((video) => {
+  autoplayVideos.forEach((video) => {
     video.addEventListener('pause', () => {
-      if (!pausedByPage.delete(video)) pausedByUser.add(video);
+      if (!pausedByPage.delete(video) && !video.ended) pausedByUser.add(video);
     });
     video.addEventListener('play', () => pausedByUser.delete(video));
+    video.addEventListener('loadstart', () => {
+      pausedByUser.delete(video);
+      updateVideo(video);
+    });
     observer.observe(video);
   });
-  const updateVideos = () => heroMosaics.forEach(updateVideo);
+  const updateVideos = () => autoplayVideos.forEach(updateVideo);
   reducedMotion.addEventListener('change', updateVideos);
   document.addEventListener('visibilitychange', updateVideos);
 }

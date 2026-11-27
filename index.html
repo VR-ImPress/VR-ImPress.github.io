@@ -17,10 +17,10 @@
   <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  <link rel="stylesheet" href="static/css/impress.css?v=mosaic-8x8">
-  <link rel="stylesheet" href="static/css/research-vertical.css?v=20261120b">
+  <link rel="stylesheet" href="static/css/impress.css?v=aligned-sections">
+  <link rel="stylesheet" href="static/css/research-vertical.css?v=aligned-sections">
   <link rel="stylesheet" href="static/css/demo-viewer.css?v=scrolling-tabs">
-  <script defer src="static/js/impress.js?v=dataset-renders"></script>
+  <script defer src="static/js/impress.js?v=visible-video-playback"></script>
   <script defer src="static/js/research-vertical.js?v=20261120b"></script>
   <script type="importmap">
     {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
@@ -40,7 +40,7 @@
 <div class="snap-region">
 <section class="hero publication-header">
   <div class="hero-mosaic hero-render-mosaic" aria-hidden="true">
-    <video muted loop playsinline preload="none" tabindex="-1" data-loop-render
+    <video muted loop playsinline preload="none" tabindex="-1"
       src="static/videos/dataset-mosaic.mp4?v=8x8" poster="static/videos/dataset-mosaic.jpg?v=8x8"></video>
   </div>
   <div class="hero-body"><div class="container is-max-desktop has-text-centered">
@@ -79,7 +79,7 @@
 </section>
 <section class="section overview-section" id="overview" aria-label="ImPress supplementary video">
   <div class="container is-max-desktop">
-    <video class="overview-render" controls playsinline preload="metadata"
+    <video class="overview-render" controls muted playsinline preload="metadata" data-autoplay-video
       src="static/videos/impress-supplementary.mp4"
       width="1920" height="1080" aria-label="ImPress supplementary video"></video>
   </div>
@@ -135,7 +135,7 @@
       <div id="task-category-panel" role="tabpanel">
         <h3 id="render-title">Flip a mug upright</h3>
         <div class="dataset-render-layout">
-          <video id="task-video" controls playsinline muted preload="metadata" width="960" height="540"
+          <video id="task-video" controls playsinline muted preload="metadata" data-autoplay-video width="960" height="540"
             aria-labelledby="render-title"></video>
           <ul class="task-results" aria-label="Choose a task video"></ul>
         </div>
@@ -143,7 +143,7 @@
       </div>
     </div>
     <noscript>
-      <video class="overview-render" controls playsinline src="static/videos/renders/flip_mug_upright.mp4"
+      <video class="overview-render" controls muted autoplay playsinline src="static/videos/renders/flip_mug_upright.mp4"
         aria-label="Rendered demonstration of flipping a mug upright"></video>
     </noscript>
   </div>

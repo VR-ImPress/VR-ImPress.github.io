@@ -15,7 +15,7 @@ html.snap-page { scroll-snap-type:y mandatory; }
 .snap-region { scroll-snap-align:start; }
 .snap-page .footer { scroll-snap-align:end; }
 
-.research-v { --hs:52px; --n:3; --gutter:max(1.5rem,calc((100vw - 1200px) / 2)); --pad:calc(var(--gutter) + 1.5rem); position:relative; background:white; border-top:1px solid #dfe3ea; }
+.research-v { --hs:52px; --n:3; --gutter:1.5rem; --pad:max(var(--gutter),calc((100% - 960px) / 2)); position:relative; background:white; border-top:1px solid #dfe3ea; }
 
 /* Sticky title bars. Bar i sits in slot i from the top once reached, and in slot (n-1-i) from the
    bottom before that. Bars have a fixed height so the stacking offsets stay exact. */
@@ -37,15 +37,14 @@ html.snap-page { scroll-snap-type:y mandatory; }
 .v-heading { display:flex; align-items:center; gap:2.25rem; margin:0 0 clamp(1.5rem,4vh,2.5rem); font-size:clamp(1.6rem,2.8vw,2.3rem); font-weight:700; line-height:1.25; color:var(--text-primary); }
 .v-heading .stage-number { font-size:clamp(1.4rem,2.4vw,1.9rem); color:#447ddf; min-width:2.6ch; }
 
-/* Cards stacked vertically. Each figure is as large as the column allows while still fitting on one screen. */
+/* Figures and result panels share the column width and keep their natural height. */
 .v-cards { display:flex; flex-direction:column; gap:clamp(2.5rem,7vh,4.5rem); margin-bottom:clamp(2.5rem,7vh,4.5rem); }
 /* scroll-snap-align:none overrides the main page's per-card snapping, which would add extra stops mid-stage. */
-.research-v .research-card { display:flex; flex-direction:column; align-items:flex-start; margin:0; scroll-snap-align:none; }
+.research-v .research-card { display:flex; flex-direction:column; align-items:flex-start; width:100%; margin:0; scroll-snap-align:none; }
 .research-v .research-card h3 { font-size:1.2rem; font-weight:700; margin:0 0 .85rem; }
-.research-v .research-card a { display:block; max-width:100%; line-height:0; border:1px solid #e4e7ee; border-radius:12px; overflow:hidden; background:white; }
-.research-v .research-card img { display:block; width:auto; height:auto; max-width:100%; max-height:calc(100svh - var(--n) * var(--hs) - 10rem); }
+.research-v .research-card a { display:block; width:100%; line-height:0; border:1px solid #e4e7ee; border-radius:12px; overflow:hidden; background:white; }
+.research-v .research-card img { display:block; width:100%; height:auto; max-width:100%; max-height:none; }
 .research-v .research-card figcaption,.research-v .research-card>p { max-width:70ch; margin:.85rem 0 0; font-size:1rem; line-height:1.6; color:var(--text-secondary); text-align:left; }
-.research-v article.research-card { width:min(100%,680px); }
 .research-v .retargeting-result { display:flex; flex-direction:column; justify-content:center; width:100%; padding:2rem 2.25rem; border-left:4px solid #72A3FE; background:#f6f7fb; border-radius:12px; }
 .research-v .retargeting-result strong { font-size:clamp(2.75rem,6vw,4.25rem); line-height:1.1; color:#283c5b; }
 .research-v .retargeting-result p { margin-top:.75rem; color:var(--text-secondary); line-height:1.6; }
@@ -57,8 +56,12 @@ html.snap-page { scroll-snap-type:y mandatory; }
 .research-v .policy-results>div { grid-template-columns:150px 1fr 60px; gap:.75rem; margin:1rem 0; }
 .research-v .results-note { text-align:left; margin:.75rem 0 0; }
 
+@media(max-width:768px) {
+  .research-v { --gutter:1.25rem; }
+}
+
 @media(max-width:600px) {
-  .research-v { --hs:46px; --gutter:1rem; --pad:1.25rem; }
+  .research-v { --hs:46px; }
   .v-bar button { gap:.85rem; }
   .v-heading { gap:1rem; }
   .research-v .policy-results>div { grid-template-columns:1fr 55px; }

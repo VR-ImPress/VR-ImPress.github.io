@@ -48,7 +48,7 @@ figcaption { font-size:.95rem; line-height:1.7; color:var(--text-secondary); mar
 .play-symbol { display:grid; place-items:center; font-size:2.7rem; width:80px; height:80px; border-radius:50%; background:white; padding-left:.15rem; margin-bottom:.4rem; }
 .video-placeholder h2 { font-size:1.6rem; font-weight:700; }
 .video-placeholder p { color:var(--text-secondary); }
-.abstract-copy { max-width:850px; margin:auto; color:var(--text-secondary); font-size:1.05rem; line-height:1.85; }
+.abstract-copy { margin:auto; color:var(--text-secondary); font-size:1.05rem; line-height:1.85; }
 .hero.is-light,.citation-section { background:#f6f7fb; }
 h3 { font-size:1.45rem; font-weight:700; color:var(--text-primary); margin-bottom:.9rem; }
 .panel-intro { text-align:center; max-width:780px; margin:0 auto 2rem; font-size:1.05rem; line-height:1.8; color:var(--text-secondary); }
@@ -189,7 +189,7 @@ article.research-card { width:clamp(260px,var(--fig-h),460px); }
   .research-card .policy-results span { grid-column:1/-1; }
 }
 
-/* Collapsible abstract (closed by default). */
+/* Collapsible abstract. */
 .abstract-toggle summary { display:flex; align-items:center; justify-content:center; gap:.75rem; cursor:pointer; list-style:none; }
 .abstract-toggle summary::-webkit-details-marker { display:none; }
 .abstract-toggle summary .title { margin:0!important; }
