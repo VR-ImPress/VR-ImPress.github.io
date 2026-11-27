@@ -52,7 +52,7 @@ html.snap-page { scroll-snap-type:y mandatory; }
 .research-v .training-flow li { counter-increment:flow; display:flex; align-items:center; gap:.75rem; padding:.95rem 1rem; background:#f6f7fb; border-left:3px solid #44aa99; border-radius:8px; font-weight:600; }
 .research-v .training-flow li::before { content:counter(flow); display:grid; place-items:center; width:1.6rem; height:1.6rem; border-radius:50%; background:white; color:#283c5b; font-size:.85rem; }
 .research-v .training-flow li:last-child { border-color:#72A3FE; background:#edf3ff; }
-.research-v .policy-results { width:100%; margin:0; }
+.research-v .policy-results { width:100%; max-width:none; margin:0; }
 .research-v .policy-results>div { grid-template-columns:150px 1fr 60px; gap:.75rem; margin:1rem 0; }
 .research-v .results-note { text-align:left; margin:.75rem 0 0; }
 
