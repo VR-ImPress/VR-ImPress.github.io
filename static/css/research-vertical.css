@@ -13,6 +13,7 @@
 
 html.snap-page { scroll-snap-type:y mandatory; }
 .snap-region { scroll-snap-align:start; }
+.snap-page #dataset-viewer { scroll-snap-align:start; }
 .snap-page .footer { scroll-snap-align:end; }
 
 .research-v { --hs:52px; --n:3; --gutter:1.5rem; --pad:max(var(--gutter),calc((100% - 960px) / 2)); position:relative; background:white; border-top:1px solid #dfe3ea; }
