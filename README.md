@@ -31,12 +31,13 @@ GitHub Pages deploys from `develop` at `/ (root)`. The `.nojekyll` file allows t
 
 Adapted from [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), which also credits [Nerfies](https://nerfies.github.io/). The template and this website adaptation are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Research text and figures remain the property of their respective authors. Bulma retains its upstream MIT license notice in its stylesheet.
 
-## Video placeholders and research sections
+## Videos and research sections
 
-- The hero and overview use `static/videos/dataset-mosaic.mp4`, an 8×8 tiled loop that shows all 71 supplied renders over 12 seconds. Automatic playback respects reduced motion and pauses when the video scrolls offscreen.
-- Research sections: the section pins to the screen while scrolling. The open stage's cards slide sideways as you scroll, and the other stages collapse to small titles above and below it. Add cards inside the corresponding `.research-track` in `index.html`. Code is in `static/js/impress.js`.
+- The hero uses `static/videos/dataset-mosaic.mp4`, an 8×8 tiled loop that shows all 71 supplied renders over 12 seconds. Automatic playback respects reduced motion and pauses when the video scrolls offscreen.
+- The overview plays `static/videos/impress-supplementary.mp4` through the browser’s video controls.
+- The homepage stacks the research cards vertically and uses sticky stage titles with native scroll snapping. Add cards inside the corresponding `.v-cards` in `index.html`. The layout and stage navigation use `static/css/research-vertical.css` and `static/js/research-vertical.js`.
 - Layout prototypes for comparison (temporary):
-  - `research-vertical.html`: cards stacked vertically, native scrolling with CSS snap points at stage boundaries (`static/css/research-vertical.css`, `static/js/research-vertical.js`).
+  - `research-vertical.html`: the standalone prototype for the homepage's research layout.
   - `research-carousel.html`: the earlier three-panel carousel with edge previews, from commit 42483a6 (`static/css/impress-carousel.css`, `static/js/impress-carousel.js`).
 - The first three authors have equal-contribution markers. All CMU authors share affiliation 1; Bosch is affiliation 4.
 

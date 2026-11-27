@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="snap-page">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +18,10 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <link rel="stylesheet" href="static/css/impress.css?v=mosaic-8x8">
+  <link rel="stylesheet" href="static/css/research-vertical.css?v=20261120b">
   <link rel="stylesheet" href="static/css/demo-viewer.css?v=scrolling-tabs">
   <script defer src="static/js/impress.js?v=dataset-renders"></script>
+  <script defer src="static/js/research-vertical.js?v=20261120b"></script>
   <script type="importmap">
     {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
   </script>
@@ -35,6 +37,7 @@
   </nav>
 </header>
 <main id="main-content">
+<div class="snap-region">
 <section class="hero publication-header">
   <div class="hero-mosaic hero-render-mosaic" aria-hidden="true">
     <video muted loop playsinline preload="none" tabindex="-1" data-loop-render
@@ -74,17 +77,22 @@
 
   </div>
 </section>
-<section class="section overview-section" id="overview" aria-label="ImPress demonstration renders">
+<section class="section overview-section" id="overview" aria-label="ImPress supplementary video">
   <div class="container is-max-desktop">
-    <video class="overview-render" muted loop controls playsinline preload="none" data-loop-render
-      src="static/videos/dataset-mosaic.mp4?v=8x8" poster="static/videos/dataset-mosaic.jpg?v=8x8"
-      width="2048" height="1152" aria-label="Tiled loop of rendered human manipulation demonstrations"></video>
+    <video class="overview-render" controls playsinline preload="metadata"
+      src="static/videos/impress-supplementary.mp4"
+      width="1920" height="1080" aria-label="ImPress supplementary video"></video>
   </div>
 </section>
 <section class="section hero is-light" id="abstract"><div class="container is-max-desktop">
-  <details class="abstract-toggle">
+  <details class="abstract-toggle" open>
   <summary><h2 class="title is-3">Abstract</h2></summary>
-  <div class="content abstract-copy"><p>Dexterous manipulation depends on how the hand interacts with an object and how the object interacts with its surroundings. Contact pressure provides a representation of these interactions and can guide their transfer from humans to robots. We present ImPress, a framework built around contact pressure for learning dexterous robot manipulation from immersive virtual reality (VR) human demonstrations. First, the ImPress demonstration collection pipeline lets operators demonstrate manipulation tasks directly inside a physics simulator, recording dense contact pressure fields without instrumenting the hands or objects. The resulting ImPress dataset contains 7,100 demonstrations of 71 contact-rich manipulation tasks. Each demonstration records hand-object and, where present, object-object contact pressure, and can be replayed directly in simulation. Second, the ImPress retargeting pipeline uses the recorded pressure to guide where each robot makes contact during model predictive path integral (MPPI) control, without requiring correspondence between human and robot hand parts. Across eight tasks and three robot end effectors, it achieves a success rate of 72.4% compared with 32.0% for the strongest baseline and leads on every task-embodiment pair. Third, the ImPress policy learning pipeline trains diffusion policies on the retargeted trajectories and fine-tunes them with reinforcement learning, using a reward that preserves the robot&#x27;s contacts from its own successful executions. On test object initial states, contact-guided reinforcement learning improves average success from 32.9% with behavior cloning to 55.7%, versus 52.1% for motion-guided RL, with higher average success on all tasks.</p></div>
+  <div class="content abstract-copy">
+    <p>Dexterous manipulation depends on how the hand interacts with an object and how the object interacts with its surroundings. Contact pressure provides a representation of these interactions and can guide their transfer from humans to robots. We present ImPress, a framework built around <strong>contact pressure for learning dexterous robot manipulation</strong> from immersive virtual reality (VR) human demonstrations.</p>
+    <p>First, the ImPress demonstration collection pipeline lets operators demonstrate manipulation tasks directly inside a physics simulator, recording dense contact pressure fields without instrumenting the hands or objects. The resulting ImPress dataset contains <strong>7,100 demonstrations of 71 contact-rich manipulation tasks</strong>. Each demonstration records hand-object and, where present, object-object contact pressure, and can be replayed directly in simulation.</p>
+    <p>Second, the ImPress retargeting pipeline uses the recorded pressure to guide where each robot makes contact during model predictive path integral (MPPI) control, without requiring correspondence between human and robot hand parts. Across eight tasks and three robot end effectors, it achieves a success rate of <strong>72.4% compared with 32.0%</strong> for the strongest baseline and leads on every task-embodiment pair.</p>
+    <p>Third, the ImPress policy learning pipeline trains diffusion policies on the retargeted trajectories and fine-tunes them with reinforcement learning, using a reward that preserves the robot&#x27;s contacts from its own successful executions. On test object initial states, contact-guided reinforcement learning improves average success <strong>from 32.9% with behavior cloning to 55.7%</strong>, versus 52.1% for motion-guided RL, with higher average success on all tasks.</p>
+  </div>
   </details>
 </div></section>
 <section class="section" id="demos" aria-labelledby="demo-heading">
@@ -140,13 +148,12 @@
     </noscript>
   </div>
 </section>
-<section class="section research-section" id="research" aria-label="ImPress research pipeline">
-  <div class="research-layout">
-    <article class="research-stage">
-      <div class="stage-pin">
-      <header class="stage-header"><span class="stage-number" aria-hidden="true">01</span><h2>Dataset / demo collection</h2></header>
-      <div class="stage-body"><div class="stage-body-inner">
-        <div class="research-strip" tabindex="0" role="region" aria-label="Dataset and demo collection cards"><div class="research-track">
+</div>
+<section class="research-v" id="research" aria-label="ImPress research pipeline">
+  <div class="v-bar" style="--i:0"><button type="button" aria-controls="stage-1"><span class="stage-number" aria-hidden="true">01</span><span class="v-bar-title">Dataset / demo collection</span></button><span class="v-bar-progress" aria-hidden="true"></span></div>
+  <div class="v-body" id="stage-1" style="--i:0">
+    <h2 class="v-heading"><span class="stage-number" aria-hidden="true">01</span>Dataset / demo collection</h2>
+    <div class="v-cards">
           <figure class="research-card">
             <h3>VR demonstration collection</h3>
             <a href="static/images/data-collection.png"><img src="static/images/data-collection.png" width="1800" height="374" alt="VR collection setup and tracked hands driving simulated physical interaction."></a>
@@ -161,17 +168,13 @@
             <h3>Task examples</h3>
             <a href="static/images/example-tasks.png"><img src="static/images/example-tasks.png" width="1800" height="1198" alt="Examples of contact-rich manipulation tasks in the ImPress dataset."></a>
           </figure>
-        </div></div>
-        <div class="research-progress" aria-hidden="true"><span></span></div>
-        </div>
-      </div>
-      </div>
-    </article>
-    <article class="research-stage">
-      <div class="stage-pin">
-      <header class="stage-header"><span class="stage-number" aria-hidden="true">02</span><h2>Retargeting</h2></header>
-      <div class="stage-body"><div class="stage-body-inner">
-        <div class="research-strip" tabindex="0" role="region" aria-label="Retargeting cards"><div class="research-track">
+    </div>
+    <span class="v-end" aria-hidden="true"></span>
+  </div>
+  <div class="v-bar" style="--i:1"><button type="button" aria-controls="stage-2"><span class="stage-number" aria-hidden="true">02</span><span class="v-bar-title">Retargeting</span></button><span class="v-bar-progress" aria-hidden="true"></span></div>
+  <div class="v-body" id="stage-2" style="--i:1">
+    <h2 class="v-heading"><span class="stage-number" aria-hidden="true">02</span>Retargeting</h2>
+    <div class="v-cards">
           <figure class="research-card">
             <h3>From human to robot</h3>
             <a href="static/images/retargeting.png"><img src="static/images/retargeting.png" width="2000" height="1988" alt="Human, Robotiq, Allegro, and Sharpa executions of grasping, reorienting, aligning, and inserting an object."></a>
@@ -185,17 +188,13 @@
             <h3>Retargeting success</h3>
             <div class="retargeting-result"><strong>72.4%</strong><p>Compared with 32.0% for the strongest baseline across eight tasks and three robot end effectors.</p></div>
           </article>
-        </div></div>
-        <div class="research-progress" aria-hidden="true"><span></span></div>
-        </div>
-      </div>
-      </div>
-    </article>
-    <article class="research-stage">
-      <div class="stage-pin">
-      <header class="stage-header"><span class="stage-number" aria-hidden="true">03</span><h2>Policy training</h2></header>
-      <div class="stage-body"><div class="stage-body-inner">
-        <div class="research-strip" tabindex="0" role="region" aria-label="Policy training cards"><div class="research-track">
+    </div>
+    <span class="v-end" aria-hidden="true"></span>
+  </div>
+  <div class="v-bar" style="--i:2"><button type="button" aria-controls="stage-3"><span class="stage-number" aria-hidden="true">03</span><span class="v-bar-title">Policy training</span></button><span class="v-bar-progress" aria-hidden="true"></span></div>
+  <div class="v-body" id="stage-3" style="--i:2">
+    <h2 class="v-heading"><span class="stage-number" aria-hidden="true">03</span>Policy training</h2>
+    <div class="v-cards">
           <article class="research-card">
             <h3>Training pipeline</h3>
             <ol class="training-flow" aria-label="Policy training stages"><li>Retargeted trajectories</li><li>Diffusion policy</li><li>Contact-guided RL</li></ol>
@@ -210,12 +209,8 @@
             </div>
             <p class="results-note">Success on test object initial states, as reported in the current manuscript. Bars use a 0–100% scale.</p>
           </article>
-        </div></div>
-        <div class="research-progress" aria-hidden="true"><span></span></div>
-        </div>
-      </div>
-      </div>
-    </article>
+    </div>
+    <span class="v-end" aria-hidden="true"></span>
   </div>
 </section>
 <section class="section citation-section" id="citation"><div class="container is-max-desktop has-text-centered">
