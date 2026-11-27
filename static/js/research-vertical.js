@@ -1,14 +1,11 @@
 'use strict';
 
-// Prototype B: scrolling is native (CSS scroll snapping in research-vertical.css). This script only
-// reads the scroll position — passively, never cancelling input — to highlight the current stage's
-// title bar, fill its progress line, and hide its label while the large heading is on screen.
+// Highlight the current stage and update its progress line during native scrolling.
 (() => {
   const root = document.querySelector('.research-v');
   if (!root) return;
   const bars = [...root.querySelectorAll('.v-bar')];
   const bodies = [...root.querySelectorAll('.v-body')];
-  const headings = bodies.map(b => b.querySelector('.v-heading'));
   const n = bars.length;
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
   let active = -1, frame = 0;
@@ -33,8 +30,6 @@
       const range = r.height - view;
       const p = range > 0 ? clamp((top - r.top) / range, 0, 1) : (r.top <= top + 2 ? 1 : 0);
       bar.style.setProperty('--p', p.toFixed(4));
-      const h = headings[j].getBoundingClientRect();
-      bar.classList.toggle('heading-visible', h.bottom > top && h.top < vh);
     });
   }
   const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
